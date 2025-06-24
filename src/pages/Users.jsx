@@ -6,6 +6,7 @@ import ReusableTable from '@/components/ReusableTable'
 import '../App.css'
 import { Input } from '@/components/ui/input'
 import ProfileNotification from '@/components/ProfileNotification'
+import { useSidebar } from '@/components/SidebarContext'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -22,6 +23,7 @@ const headers = [
 ]
 
 const Users = () => {
+  const { openSidebar } = useSidebar()
   const [tableJson, setTableJson] = useState([])
   useEffect(() => {
     setTableJson(usersData)
@@ -47,11 +49,11 @@ const Users = () => {
   const handleChange = (e) => {
     setsearchVal(e.target.value)
   }
+  const [filteredItems, setFilteredItems] = useState([])
 
-  // useEffect(() => {
-  //   setFilteredItems(activeItems)
-  // }, [])
-  const [filteredItems, setFilteredItems] = useState(activeItems)
+  useEffect(() => {
+    setFilteredItems(activeItems)
+  }, [tableJson])
 
   // console.log('activeItems: ', activeItems)
   // console.log('filteredItems ', filteredItems)
@@ -72,7 +74,11 @@ const Users = () => {
   }, [debounceVal])
 
   return (
-    <div className='min-h-screen flex flex-col flex-1 p-3 bg-gray-50'>
+    <div
+      className={`${
+        openSidebar ? 'ml-[266px]' : 'ml-[80px]'
+      } min-h-screen flex flex-col flex-1 p-3 bg-gray-50`}
+    >
       {/* Header */}
       <ProfileNotification />
 

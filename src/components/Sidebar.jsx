@@ -31,9 +31,9 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`sidebar flex flex-col ${
+      className={`sidebar fixed top-0 left-0 z-50 flex flex-col ${
         openSidebar ? 'w-[266px]' : 'w-[80px]'
-      } p-4 h-screen bg-white relative shadow-md transition-all duration-300`}
+      } p-4 h-screen bg-white shadow-md transition-all duration-300`}
     >
       {/* Toggle Button */}
       <button

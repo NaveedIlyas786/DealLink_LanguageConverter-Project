@@ -13,9 +13,10 @@ const App = () => {
   return (
     <SidebarProvider>
       <BrowserRouter>
-        <div className='flex h-screen overflow-hidden '>
+        <div className='flex h-screen '>
           <Sidebar />
-          <div className='flex-1 overflow-hidden'>
+          {/* <div className='flex-1 overflow-hidden'> */}
+          <div className='flex-1 overflow-y-auto'>
             <Routes>
               <Route exact path='/' element={<Dashboard />} />
               <Route exact path='/offerPage' element={<OfferPage />} />

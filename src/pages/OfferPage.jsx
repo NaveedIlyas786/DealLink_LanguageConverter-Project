@@ -8,6 +8,7 @@ import '../App.css'
 import { Input } from '@/components/ui/input'
 import ProfileNotification from '@/components/ProfileNotification'
 import { useTranslation } from 'react-i18next'
+import { useSidebar } from '@/components/SidebarContext'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -16,6 +17,7 @@ const statusColors = {
 }
 
 const OfferPage = () => {
+  const { openSidebar } = useSidebar()
   const { t } = useTranslation()
   const headers = [
     { key: 'offerName', label: 'offerName' },
@@ -75,7 +77,11 @@ const OfferPage = () => {
   }, [debounceVal])
 
   return (
-    <div className='min-h-screen flex flex-col flex-1 p-3 bg-gray-50'>
+    <div
+      className={`${
+        openSidebar ? 'ml-[266px]' : 'ml-[80px]'
+      } min-h-screen flex flex-col flex-1 p-3 bg-gray-50`}
+    >
       {/* Header */}
       <ProfileNotification />
 
