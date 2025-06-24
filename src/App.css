@@ -1,0 +1,23 @@
+.sidebar ul li a {
+  padding: 15px;
+  border-radius: 10px;
+}
+.sidebar ul li a:hover {
+  background-color: #17642f;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+button {
+  margin-left: 10px;
+  background-color: cadetblue;
+}
+button:hover {
+  border: solid 1px yellow;
+}
+button.selected {
+  background-color: rgb(194, 15, 15);
+
+  color: '#ffffff';
+}
