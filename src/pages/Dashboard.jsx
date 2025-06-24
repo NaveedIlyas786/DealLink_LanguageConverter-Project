@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import React, { useEffect, useState } from 'react'
-import tabledata from '@/data/tableEntries.json'
+import recentActivityJson from '@/data/recentActivity.json'
 import summaryJson from '@/data/summary.json'
 import offersNeedingReviewData from '@/data/offersNeedingReview.json'
 import ReusableTable from '@/components/ReusableTable'
@@ -39,10 +39,14 @@ const Dashboard = () => {
 
   const [tableJson, setTableJson] = useState([])
   const [summaryData, setSummaryData] = useState([])
+  const [recentActivityData, setRecentActivityData] = useState([])
 
   useEffect(() => {
     setSummaryData(summaryJson)
   }, [summaryJson])
+  useEffect(() => {
+    setRecentActivityData(recentActivityJson)
+  }, [recentActivityJson])
 
   useEffect(() => {
     setTableJson(offersNeedingReviewData)
@@ -128,8 +132,8 @@ const Dashboard = () => {
         </div>
       </div>
       <RedemptionChart />
-      <div className='flex bg-amber-400 overflow-x-auto w-full md:overflow-x-visible'>
-        <Card className='flex-[0.70] min-w-[768px]'>
+      <div className='flex  bg-white rounded-[20px] p-3 gap-[20px] overflow-x-auto w-full md:overflow-x-visible'>
+        <Card className='flex-[0.75] min-w-[768px]'>
           <CardContent className='p-0'>
             <div className='p-4 flex justify-between items-center'>
               <h2 className='text-lg font-semibold'>Offers Needing Review</h2>
@@ -166,7 +170,38 @@ const Dashboard = () => {
             </div>
           </CardContent>
         </Card>
-        <Card className='flex-[0.30] min-w-[370px]'></Card>
+        <Card className='flex-[0.25] min-w-[370px]'>
+          <CardContent className='p-0'>
+            <div className='p-4 flex justify-between items-center'>
+              <h2 className='text-lg font-semibold'>Offers Needing Review</h2>
+            </div>
+            <hr />
+            <div>
+              {recentActivityData.map((a, index) => (
+                <div
+                  className={`flex gap-[12px] ${
+                    index === recentActivityData.length - 1
+                      ? 'border-0'
+                      : 'border-1'
+                  } py-[16px]  px-[25px] items-center justify-around`}
+                >
+                  <div className=' flex-[0.15] '>
+                    <img
+                      className='w-[32px] mx-auto h-[32px] rounded-full'
+                      src={a.image}
+                      alt='userImg'
+                    />
+                  </div>
+                  <div className='flex flex-col flex-[0.85]  text-left gap-[10px] '>
+                    <h3 className='leading-none'>{a.name}</h3>
+                    <h4 className='leading-none'>{a.message}</h4>
+                    <h4 className='leading-none'>{a.timeAgo}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )
