@@ -20,7 +20,7 @@ const OfferPage = () => {
   const { openSidebar } = useSidebar()
   const { t } = useTranslation()
   const headers = [
-    { key: 'offerName', label: 'Offer Name' },
+    { key: 'offerName', label: 'offerName' },
     { key: 'merchant', label: 'merchant' },
     { key: 'category', label: 'category' },
     { key: 'submittedOn', label: 'submittedOn' },

@@ -15,11 +15,11 @@ const statusColors = {
 }
 
 const headers = [
-  { key: 'name', label: 'Name' },
-  { key: 'role', label: 'Role' },
-  { key: 'email', label: 'Email' },
-  { key: 'phone', label: 'Phone' },
-  { key: 'joinOn', label: 'JoinOn' },
+  { key: 'name', label: 'name' },
+  { key: 'role', label: 'role' },
+  { key: 'email', label: 'email' },
+  { key: 'phone', label: 'phone' },
+  { key: 'joinOn', label: 'joinOn' },
 ]
 
 const Users = () => {
@@ -28,7 +28,7 @@ const Users = () => {
   useEffect(() => {
     setTableJson(usersData)
   }, [usersData])
-  // console.log('usersData: ', usersData)
+  console.log('usersData: ', usersData)
 
   const [currentPage, setCurrentPage] = useState(1)
   const [searchVal, setsearchVal] = useState('')

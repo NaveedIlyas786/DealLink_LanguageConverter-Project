@@ -1,15 +1,21 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import LenguageDetector from './LenguageDetector'
+import { useSidebar } from './SidebarContext'
 
 const LanguageDisplay = () => {
   const { t } = useTranslation()
+  const { openSidebar } = useSidebar()
   const { line1, line2 } = t('description', {
     city: 'Vehari',
   })
   // console.log('line1: ', line1)
   return (
-    <div>
+    <div
+      className={`${
+        openSidebar ? 'ml-[266px]' : 'ml-[80px]'
+      } min-h-screen flex flex-col flex-1 p-3 bg-gray-50`}
+    >
       <h1 className='text-3xl font-bold text-gray-400 mb-4'>LanguageDisplay</h1>
 
       <LenguageDetector />

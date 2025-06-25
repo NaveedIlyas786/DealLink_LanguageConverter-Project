@@ -7,7 +7,6 @@ const LanguageDetector = () => {
 
   const languages = [
     { code: 'en', lang: 'English' },
-    { code: 'fr', lang: 'French' },
     { code: 'ar', lang: 'Arabic' },
   ]
 
@@ -20,7 +19,7 @@ const LanguageDetector = () => {
   }, [i18n.language])
 
   return (
-    <div>
+    <div className='flex gap-4'>
       {languages.map((a) => (
         <button
           key={a.code}

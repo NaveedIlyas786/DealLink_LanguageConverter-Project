@@ -31,11 +31,18 @@ const ReusableTable = ({ headers, data, statusColors }) => {
                     >
                       {t(`statuses.${row.status}`, row.status)}
                     </span>
+                  ) : header.key === 'offerName' ? (
+                    t(`offerNames.${row.offerName}`, row.offerName)
+                  ) : header.key === 'merchant' ? (
+                    t(`merchants.${row.merchant}`, row.merchant)
+                  ) : header.key === 'category' ? (
+                    t(`categories.${row.category}`, row.category)
                   ) : (
                     row[header.key]
                   )}
                 </td>
               ))}
+
               <td className='px-4 py-2 flex gap-2'>
                 <Pencil className='w-4 h-4 text-blue-600 cursor-pointer' />
                 <Trash2 className='w-4 h-4 text-red-600 cursor-pointer' />
