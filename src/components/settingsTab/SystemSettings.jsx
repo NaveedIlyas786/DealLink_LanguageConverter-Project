@@ -2,16 +2,20 @@ import React, { useState } from 'react'
 import UAEFlagImg from '../../assets/uaeFlag.png'
 import UkFlagImg from '../../assets/ukFlag.png'
 import LanguageDetector from '../LenguageDetector'
+import { useTranslation } from 'react-i18next'
 const SystemSettings = () => {
-  const [enabled, setEnabled] = useState(false) // false = OFF, true = ON
-
+  const { t } = useTranslation()
   return (
     <div className='flex-1 lg:flex-[0.60] flex flex-col gap-[20px] bg-gray-50 rounded '>
       <div>
-        <h1 className='text-xl font-semibold mb-1'>Show Notifications</h1>
+        <h1 className='text-xl font-semibold mb-1'>
+          {t('Show Notifications', { ns: 'static' })}
+        </h1>
         <p className='text-sm text-gray-600 mb-4'>
-          Allow to receive push notifications for user activities and logs
-          count.
+          {t(
+            'Allow to receive push notifications for user activities and logs count.',
+            { ns: 'static' }
+          )}
         </p>
 
         <div className='flex items-center gap-4'>
@@ -27,14 +31,20 @@ const SystemSettings = () => {
         </div>
       </div>
       <div>
-        <h1 className='text-xl font-semibold mb-1'>2 Factor Authentication</h1>
+        <h1 className='text-xl font-semibold mb-1'>
+          {t('2 Factor Authentication', { ns: 'static' })}
+        </h1>
         <p className='text-sm text-gray-600 mb-4'>
-          Allow to receive push notifications for user activities and logs
-          count.
+          {t(
+            'Allow to receive push notifications for user activities and logs count.',
+            { ns: 'static' }
+          )}
         </p>
 
         <div className='flex items-center gap-4'>
-          <span className='text-sm font-medium text-gray-700'>OFF</span>
+          <span className='text-sm font-medium text-gray-700'>
+            {t('OFF', { ns: 'static' })}
+          </span>
 
           {/* Toggle Switch */}
           <label className='switch'>
@@ -42,14 +52,21 @@ const SystemSettings = () => {
             <span className='slider round'></span>
           </label>
 
-          <span className='text-sm font-medium text-gray-700'>ON</span>
+          <span className='text-sm font-medium text-gray-700'>
+            {' '}
+            {t('ON', { ns: 'static' })}
+          </span>
         </div>
       </div>
       <div>
-        <h1 className='text-xl font-semibold mb-1'>Select Your Language</h1>
+        <h1 className='text-xl font-semibold mb-1'>
+          {t('Select Your Language', { ns: 'static' })}
+        </h1>
         <p className='text-sm text-gray-600 mb-4'>
-          Allow to receive push notifications for user activities and logs
-          count.
+          {t(
+            'Allow to receive push notifications for user activities and logs count.',
+            { ns: 'static' }
+          )}
         </p>
 
         <LanguageDetector />

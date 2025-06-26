@@ -12,6 +12,7 @@ import { useSidebar } from '@/components/SidebarContext'
 import { useTranslation } from 'react-i18next'
 import i18n from '@/utils/i18n'
 import { Outlet, useNavigate } from 'react-router-dom'
+import FilterSidebar from '@/components/dashboardOffers/FilterSidebar'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -80,6 +81,33 @@ const OfferPage = () => {
   const routeTonewOfferCreation = () => {
     navigate('/offerPage/createnewOffer')
   }
+  // ******************Filtering *****************
+
+  const [showFilter, setShowFilter] = useState(false)
+
+  const [filters, setFilters] = useState({
+    status: [],
+    category: [],
+  })
+
+  const applyFilters = () => {
+    let filtered = [...tableJson]
+
+    if (filters.status.length && !filters.status.includes('All')) {
+      filtered = filtered.filter((item) => filters.status.includes(item.status))
+    }
+
+    if (filters.category.length) {
+      filtered = filtered.filter((item) =>
+        filters.category.includes(item.category)
+      )
+    }
+
+    setFilteredItems(filtered.slice(0, itemsPerPage))
+    setCurrentPage(1)
+    setShowFilter(false)
+  }
+
   return (
     <div
       className={`min-h-screen overflow-y-auto flex flex-col flex-1 py-[15px] bg-gray-50`}
@@ -98,9 +126,9 @@ const OfferPage = () => {
               <Button
                 onClick={routeTonewOfferCreation}
                 variant='default'
-                className='bg-green-800 hover:bg-green-700 text-white'
+                className='bg-green-800 hover:bg-green-700 cursor-pointer text-white'
               >
-                Add New Offer
+                {t('Add New Offer', { ns: 'static' })}
               </Button>
             </div>
             <div className='p-4 gap-2 flex justify-between items-center'>
@@ -111,7 +139,13 @@ const OfferPage = () => {
                 value={searchVal}
                 onChange={(e) => setSearchVal(e.target.value)}
               />
-              <Button variant='outline'>{t('Filters')}</Button>
+              <Button
+                variant='outline'
+                className='cursor-pointer'
+                onClick={() => setShowFilter(!showFilter)}
+              >
+                {t('Filters')}
+              </Button>
             </div>
 
             <ReusableTable
@@ -119,6 +153,15 @@ const OfferPage = () => {
               data={filteredItems}
               statusColors={statusColors}
             />
+
+            {showFilter && (
+              <FilterSidebar
+                filters={filters}
+                setFilters={setFilters}
+                applyFilters={applyFilters}
+                closeFilter={() => setShowFilter(false)}
+              />
+            )}
 
             <div className='flex justify-between items-center p-4 border-t text-sm'>
               <span>

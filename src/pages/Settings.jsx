@@ -7,9 +7,11 @@ import ProfileNotification from '@/components/ProfileNotification'
 import ProfileSettings from '@/components/settingsTab/ProfileSettings'
 import SystemSettings from '@/components/settingsTab/SystemSettings'
 import ChangePassword from '@/components/settingsTab/ChangePassword'
+import { useTranslation } from 'react-i18next'
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState('profileSetting')
+  const { t } = useTranslation()
   useEffect(() => {
     setActiveTab('profileSetting')
   }, [])
@@ -30,7 +32,9 @@ const Settings = () => {
     >
       {/* Header */}
       <ProfileNotification />
-      <h1 className='text-3xl ml-[40px] font-bold text-black mb-4'>Settings</h1>
+      <h1 className='text-3xl ml-[40px] font-bold text-black mb-4'>
+        {t('Settings', { ns: 'static' })}
+      </h1>
 
       <div className='flex gap-[12px] ml-[40px] flex-wrap'>
         <button
@@ -41,7 +45,7 @@ const Settings = () => {
               : 'bg-none text-black hover:bg-[#69bb68] hover:text-white '
           } border-[1px] border-[#25252526] py-2 px-4 sm:py-[15px] sm:px-[24px] text-sm sm:text-base font-semibold cursor-pointer rounded-full`}
         >
-          Profile Settings
+          {t('Profile Settings', { ns: 'static' })}
         </button>
         <button
           onClick={() => handleaActiveTab('systemSetting')}
@@ -51,7 +55,7 @@ const Settings = () => {
               : 'bg-none text-black hover:bg-[#69bb68] hover:text-white '
           } border-[1px] border-[#25252526] py-2 px-4 sm:py-[15px] sm:px-[24px] text-sm sm:text-base font-semibold cursor-pointer rounded-full`}
         >
-          System Settings
+          {t('System Settings', { ns: 'static' })}
         </button>
         <button
           onClick={() => handleaActiveTab('changePasword')}
@@ -61,7 +65,7 @@ const Settings = () => {
               : 'bg-none text-black hover:bg-[#69bb68] hover:text-white '
           } border-[1px] border-[#25252526] py-2 px-4 sm:py-[15px] sm:px-[24px] text-sm sm:text-base font-semibold cursor-pointer rounded-full`}
         >
-          Change Password
+          {t('Change Password', { ns: 'static' })}
         </button>
       </div>
 

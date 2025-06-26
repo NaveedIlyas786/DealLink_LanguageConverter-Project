@@ -96,7 +96,9 @@ const Dashboard = () => {
 
       {/* Summary Cards */}
       <div className='my-5'>
-        <h2 className='text-md font-semibold'>{t('Summary Overview')}</h2>
+        <h2 className='text-md font-semibold'>
+          {t('Summary Overview', { ns: 'static' })}
+        </h2>
         <div className='flex flex-wrap gap-4'>
           {summaryData.map((a, index) => (
             <div
@@ -108,15 +110,17 @@ const Dashboard = () => {
                 alt={a.title}
                 className='w-10 h-10 mb-2'
               />
-              <h2 className='text-lg font-semibold'>{a.title}</h2>
+              <h2 className='text-lg font-semibold'>
+                {t(`${a.title}`, { ns: 'static' })}
+              </h2>
               <h1 className='text-[22px] font-bold flex items-center gap-2'>
-                {a.value}
+                {t(`${a.value}`, { ns: 'static' })}
                 <span className='text-[#17642F] text-sm flex items-center'>
                   <TrendingUp />
                   {a.change}
                 </span>
               </h1>
-              <p>{a.description}</p>
+              <p>{t(`${a.description}`, { ns: 'static' })}</p>
             </div>
           ))}
         </div>

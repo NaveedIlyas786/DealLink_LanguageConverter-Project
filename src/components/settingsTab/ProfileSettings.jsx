@@ -4,7 +4,7 @@ import LanguageDetector from '../LenguageDetector'
 import { useTranslation } from 'react-i18next'
 import { useSidebar } from '../SidebarContext'
 const ProfileSettings = () => {
-  // const { i18n } = useTranslation()
+  const { t } = useTranslation()
   // console.log('Current language:', i18n.language)
 
   return (
@@ -14,7 +14,7 @@ const ProfileSettings = () => {
           className='text-[15px] font-bold my-[14px]'
           htmlFor='businessName'
         >
-          Business Name
+          {t('Business Name', { ns: 'static' })}
         </label>
         <Input
           className='rounded-full bg-white py-[25px] px-[20px]'
@@ -26,7 +26,7 @@ const ProfileSettings = () => {
       <div className='flex gap-[14px] my-[20px]'>
         <div className='w-full'>
           <label className='text-[15px] font-bold' htmlFor='firstName'>
-            Owner's First Name
+            {t("Owner's First Name", { ns: 'static' })}
           </label>
           <Input
             className='rounded-full bg-white  py-[25px] px-[20px]'
@@ -37,7 +37,7 @@ const ProfileSettings = () => {
         </div>
         <div className='w-full'>
           <label className='text-[15px] font-bold' htmlFor='lastName'>
-            Owner's Last Name
+            {t("Owner's Last Name", { ns: 'static' })}
           </label>
           <Input
             className='rounded-full bg-white py-[25px] px-[20px]'
@@ -50,7 +50,7 @@ const ProfileSettings = () => {
       <div className='flex  gap-[14px] my-[20px]'>
         <div className='w-full'>
           <label className='text-[15px] font-bold' htmlFor='email'>
-            Email Address
+            {t('Email Address', { ns: 'static' })}
           </label>
           <Input
             className='rounded-full bg-white py-[25px] px-[20px]'
@@ -61,7 +61,7 @@ const ProfileSettings = () => {
         </div>
         <div className='w-full'>
           <label className='text-[15px] font-bold' htmlFor='phoneNumber'>
-            Phone Number
+            {t('Phone Number', { ns: 'static' })}
           </label>
           <div className='flex items-center rounded-full border border-input bg-background px-4 py-[10px]'>
             <span className='text-gray-500 pr-3 border-r border-gray-300'>
@@ -72,7 +72,7 @@ const ProfileSettings = () => {
               name='phoneNumber'
               id='phoneNumber'
               placeholder='3001234567'
-              className='w-full px-3 bg-white outline-none bg-transparent'
+              className='w-full px-3 bg-white outline-none '
             />
           </div>
         </div>
@@ -80,7 +80,7 @@ const ProfileSettings = () => {
       <div className='flex gap-[14px] my-[20px]'>
         <div className='w-full'>
           <label className='text-[15px] font-bold' htmlFor='Pass'>
-            Password
+            {t('Password', { ns: 'static' })}
           </label>
           <Input
             className='rounded-full bg-white py-[25px] px-[20px]'
@@ -91,7 +91,7 @@ const ProfileSettings = () => {
         </div>
         <div className='w-full'>
           <label className='text-[15px] font-bold' htmlFor='confirmPass'>
-            Confirm Password
+            {t('Confirm Password', { ns: 'static' })}
           </label>
           <Input
             className='rounded-full bg-white py-[25px] px-[20px]'
@@ -105,7 +105,7 @@ const ProfileSettings = () => {
         className='flex-1 lg:flex-[0.60] mt-[20px] w-full text-white cursor-pointer bg-[#FE7D13] rounded-full py-[20px] px-[20px]'
         type='submit'
       >
-        Save Changes
+        {t('Save Changes', { ns: 'static' })}
       </button>
       <LanguageDetector />
     </div>

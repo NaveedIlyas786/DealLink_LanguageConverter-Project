@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import dayjs from 'dayjs'
+import { useTranslation } from 'react-i18next'
 
 const now = dayjs()
 
@@ -48,7 +49,7 @@ const tabs = [
 
 export default function RedemptionChart() {
   const [selectedRange, setSelectedRange] = useState('30d')
-
+  const { t } = useTranslation()
   const getFilteredData = () => {
     const now = dayjs()
     let cutoff
@@ -85,7 +86,9 @@ export default function RedemptionChart() {
     <div className='flex  flex-col justify-between shadow-md bg-white px-[20px] py-[15px]  rounded-xl items-center mb-6'>
       <div className=' gap-[20px] flex flex-col sm:flex-row justify-between items-center w-[100%] mb-4'>
         <div className='text-center sm-text-left'>
-          <h2 className='text-md font-semibold'>Redemptions Over Time</h2>
+          <h2 className='text-md font-semibold'>
+            {t(`Redemptions Over Time`, { ns: 'static' })}
+          </h2>
         </div>
         <div className='flex'>
           {tabs.map((tab, idx) => (

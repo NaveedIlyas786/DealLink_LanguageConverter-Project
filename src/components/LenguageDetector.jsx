@@ -5,7 +5,7 @@ import UAEFlagImg from '../assets/uaeFlag.png'
 import UkFlagImg from '../assets/ukFlag.png'
 
 const LanguageDetector = () => {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   console.log('Current language:', i18n.language)
 
   const [langCode, setLangCode] = useState('')
@@ -32,39 +32,33 @@ const LanguageDetector = () => {
         <div className='flex items-center gap-4'>
           <input
             className={`w-5 h-5 cursor-pointer ${
-              langCode === i18n.language
-            } && accent-green-600 `}
+              i18n.language === 'en' ? 'accent-green-600' : ''
+            }`}
             type='radio'
             id='english'
             name='fav_language'
             checked={i18n.language === 'en'}
-            value='english'
-            onClick={() => handleLanguageChange('en')}
+            value='en'
+            onChange={() => handleLanguageChange('en')}
           />
-           
           <img className='w-[24px] h-[24px]' src={UkFlagImg} alt='Flag Img' />
-          <label for='english'>English</label>
+          <label htmlFor='english'>English</label>
         </div>
-        <div className='flex items-center gap-4 '>
+
+        <div className='flex items-center gap-4'>
           <input
             className={`w-5 h-5 cursor-pointer ${
-              langCode === i18n.language ? 'accent-green-600' : ''
-            } `}
+              i18n.language === 'ar' ? 'accent-green-600' : ''
+            }`}
             type='radio'
-            checked={i18n.language === 'ar'}
             id='arabic'
             name='fav_language'
-            value='arabic'
-            onClick={() => handleLanguageChange('ar')}
+            checked={i18n.language === 'ar'}
+            value='ar'
+            onChange={() => handleLanguageChange('ar')}
           />
-
-          <img
-            className='w-[28px] h-[28px]'
-            src={UAEFlagImg}
-            alt='Flag Img'
-            id='arabic'
-          />
-          <label for='html'>Arabic</label>
+          <img className='w-[28px] h-[28px]' src={UAEFlagImg} alt='Flag Img' />
+          <label htmlFor='arabic'>{t('Arabic', { ns: 'static' })}</label>
         </div>
       </div>
     </div>
