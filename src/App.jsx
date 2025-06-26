@@ -7,7 +7,6 @@ import OfferPage from './pages/OfferPage'
 import Users from './pages/Users'
 import Settings from './pages/Settings'
 import { SidebarProvider } from './components/SidebarContext'
-import LanguageConverter from './components/languageConverter'
 
 const App = () => {
   return (
@@ -16,13 +15,12 @@ const App = () => {
         <div className='flex h-screen '>
           <Sidebar />
           {/* <div className='flex-1 overflow-hidden'> */}
-          <div className='flex-1 overflow-y-auto'>
+          <div className='flex-1 overflow-y-auto bg-gray-50 px-[15px]'>
             <Routes>
-              <Route exact path='/' element={<Dashboard />} />
+              <Route exact path='/dashboard' element={<Dashboard />} />
               <Route exact path='/offerPage' element={<OfferPage />} />
               <Route exact path='/users' element={<Users />} />
               <Route exact path='/settings' element={<Settings />} />
-              <Route exact path='/converter' element={<LanguageConverter />} />
             </Routes>
           </div>
         </div>

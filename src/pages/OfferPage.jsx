@@ -7,8 +7,10 @@ import ReusableTable from '@/components/ReusableTable'
 import '../App.css'
 import { Input } from '@/components/ui/input'
 import ProfileNotification from '@/components/ProfileNotification'
-import { useTranslation } from 'react-i18next'
+// import { useTranslation } from 'react-i18next'
 import { useSidebar } from '@/components/SidebarContext'
+import { useTranslation } from 'react-i18next'
+import i18n from '@/utils/i18n'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -17,8 +19,7 @@ const statusColors = {
 }
 
 const OfferPage = () => {
-  const { openSidebar } = useSidebar()
-  const { t } = useTranslation()
+  const currentLang = i18n.language
   const headers = [
     { key: 'offerName', label: 'offerName' },
     { key: 'merchant', label: 'merchant' },
@@ -27,36 +28,30 @@ const OfferPage = () => {
     { key: 'status', label: 'status' },
   ]
 
+  const { t } = useTranslation('offerPage')
+
+  // console.log('Current language table:', t.language)
+
   const [tableJson, setTableJson] = useState([])
 
   useEffect(() => {
     setTableJson(tabledata)
   }, [tabledata])
-  console.log('tableJson: ', tableJson)
+  // console.log('tableJson: ', tableJson)
 
   const [currentPage, setCurrentPage] = useState(1)
-  const [searchVal, setsearchVal] = useState('')
+  const [searchVal, setSearchVal] = useState('')
   const [debounceVal, setDebounceVal] = useState('')
   const [filteredItems, setFilteredItems] = useState([])
 
   const itemsPerPage = 10
 
   const start = (currentPage - 1) * itemsPerPage
-  const activeItems = tableJson.slice(start, start + itemsPerPage)
   const totalPages = Math.ceil(tableJson.length / itemsPerPage)
 
-  const handleNext = () => {
-    setCurrentPage(currentPage + 1)
-  }
-  const handlePrev = () => {
-    setCurrentPage(currentPage < 1 ? 1 : currentPage - 1)
-  }
-  const handleChange = (e) => {
-    setsearchVal(e.target.value)
-  }
   useEffect(() => {
-    setFilteredItems(activeItems)
-  }, [tableJson])
+    setFilteredItems(tableJson)
+  }, [])
 
   useEffect(() => {
     const interval = setTimeout(() => {
@@ -64,23 +59,26 @@ const OfferPage = () => {
     }, 500)
     return () => clearTimeout(interval)
   }, [searchVal])
-  // console.log(searchVal)
-  // console.log(debounceVal)
 
   useEffect(() => {
     const searchingItems = tableJson.filter((a) =>
-      `${a.merchant} || ${a.offerName}`
+      `${a.merchant} ${a.offerName}`
         .toLowerCase()
-        .includes(searchVal.toLowerCase())
+        .includes(debounceVal.toLowerCase())
     )
-    setFilteredItems(searchingItems)
-  }, [debounceVal])
+    setFilteredItems(searchingItems.slice(start, start + itemsPerPage))
+  }, [debounceVal, tableJson, currentPage])
 
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1)
+  }
+
+  const handlePrev = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1)
+  }
   return (
     <div
-      className={`${
-        openSidebar ? 'ml-[266px]' : 'ml-[80px]'
-      } min-h-screen flex flex-col flex-1 p-3 bg-gray-50`}
+      className={`min-h-screen overflow-y-auto flex flex-col flex-1 py-[15px] bg-gray-50`}
     >
       {/* Header */}
       <ProfileNotification />
@@ -89,16 +87,18 @@ const OfferPage = () => {
         <Card className='min-w-[768px]'>
           <CardContent className='p-0'>
             <div className='p-4 flex justify-between items-center'>
-              <h2 className='text-lg font-semibold'>Offers</h2>
+              <h2 className='text-lg font-semibold'>
+                {currentLang === 'ar' ? t('Offers') : 'Offers'}
+              </h2>
               <div className='flex gap-3'>
                 <Input
                   className=' min-w-[450px]'
                   type='search'
-                  placeholder='Search'
+                  placeholder={t('Search')}
                   value={searchVal}
-                  onChange={handleChange}
+                  onChange={(e) => setSearchVal(e.target.value)}
                 />
-                <Button variant='outline'>Filters</Button>
+                <Button variant='outline'>{t('Filters')}</Button>
               </div>
             </div>
 
@@ -110,7 +110,9 @@ const OfferPage = () => {
 
             <div className='flex justify-between items-center p-4 border-t text-sm'>
               <span>
-                Page {currentPage} of {totalPages}
+                {currentLang === 'ar'
+                  ? `${t('Page')} ${currentPage} ${t('of')} ${totalPages}`
+                  : `Page ${currentPage} of ${totalPages}`}
               </span>
               <div className='space-x-2'>
                 <Button
@@ -119,7 +121,7 @@ const OfferPage = () => {
                   variant='outline'
                   size='sm'
                 >
-                  Previous
+                  {currentLang === 'ar' ? t('Previous') : 'Previous'}
                 </Button>
                 <Button
                   disabled={currentPage === totalPages}
@@ -127,7 +129,7 @@ const OfferPage = () => {
                   variant='outline'
                   size='sm'
                 >
-                  Next
+                  {currentLang === 'ar' ? t('Next') : 'Next'}
                 </Button>
               </div>
             </div>

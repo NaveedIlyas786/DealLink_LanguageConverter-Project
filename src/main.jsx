@@ -1,13 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './utils/i18n'
 import './index.css'
-import App from './App.jsx'
-import './utils/i18n.js'
+import AppWithTranslation from './components/AppWithTranslation'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <div className='bg-gray-100'>
-      <App />
-    </div>
-  </StrictMode>
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+  <React.StrictMode>
+    <AppWithTranslation />
+  </React.StrictMode>
 )

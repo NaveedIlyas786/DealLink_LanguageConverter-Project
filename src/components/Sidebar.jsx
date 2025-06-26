@@ -28,10 +28,10 @@ const Sidebar = () => {
 
   // Utility function to determine if the route is active
   const isActive = (path) => location.pathname === path
-
+  console.log('isActive: ', isActive)
   return (
     <div
-      className={`sidebar fixed top-0 left-0 z-50 flex flex-col ${
+      className={`sidebar relative top-0 left-0 z-50 flex flex-col ${
         openSidebar ? 'w-[266px]' : 'w-[80px]'
       } p-4 h-screen bg-white shadow-md transition-all duration-300`}
     >
@@ -63,9 +63,9 @@ const Sidebar = () => {
       <ul className='flex flex-col space-y-2 mt-10'>
         <li>
           <Link
-            to='/'
+            to='/dashboard'
             className={`flex items-center gap-2 transition ${
-              isActive('/')
+              isActive('/dashboard')
                 ? 'bg-[#17642f] text-[#ffffff] font-bold'
                 : 'text-gray-700 hover:text-[#FE7D13]'
             }`}
@@ -114,21 +114,6 @@ const Sidebar = () => {
           >
             <Settings className='w-7 h-5' />
             {openSidebar && <span className='text-[16px]'>Settings</span>}
-          </Link>
-        </li>
-        <li>
-          <Link
-            to='/converter'
-            className={`flex items-center gap-2 transition ${
-              isActive('/converter')
-                ? 'bg-[#17642f] text-[#ffffff] font-bold'
-                : 'text-gray-700 hover:text-[#FE7D13]'
-            }`}
-          >
-            <Settings className='w-7 h-5' />
-            {openSidebar && (
-              <span className='text-[16px]'>Language Converter</span>
-            )}
           </Link>
         </li>
       </ul>

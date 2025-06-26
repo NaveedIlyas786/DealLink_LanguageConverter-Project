@@ -83,8 +83,8 @@ export default function RedemptionChart() {
 
   return (
     <div className='flex  flex-col justify-between shadow-md bg-white px-[20px] py-[15px]  rounded-xl items-center mb-6'>
-      <div className='flex justify-between items-center w-[100%] mb-4'>
-        <div>
+      <div className=' gap-[20px] flex flex-col sm:flex-row justify-between items-center w-[100%] mb-4'>
+        <div className='text-center sm-text-left'>
           <h2 className='text-md font-semibold'>Redemptions Over Time</h2>
         </div>
         <div className='flex'>

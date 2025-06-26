@@ -1,12 +1,14 @@
+import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import React, { useEffect, useState } from 'react'
-import usersData from '@/data/users.json'
-import ReusableTable from '@/components/ReusableTable'
-import '../App.css'
 import { Input } from '@/components/ui/input'
 import ProfileNotification from '@/components/ProfileNotification'
-import { useSidebar } from '@/components/SidebarContext'
+import ReusableTable from '@/components/ReusableTable'
+import usersData from '@/data/users.json'
+import { useTranslation } from 'react-i18next'
+import i18n from '@/utils/i18n'
+
+import '../App.css'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -23,62 +25,51 @@ const headers = [
 ]
 
 const Users = () => {
-  const { openSidebar } = useSidebar()
+  const { t } = useTranslation('users')
+  const currentLang = i18n.language
+
   const [tableJson, setTableJson] = useState([])
-  useEffect(() => {
-    setTableJson(usersData)
-  }, [usersData])
-  console.log('usersData: ', usersData)
+  const [searchVal, setSearchVal] = useState('')
+  const [debounceVal, setDebounceVal] = useState('')
+  const [filteredItems, setFilteredItems] = useState([])
 
   const [currentPage, setCurrentPage] = useState(1)
-  const [searchVal, setsearchVal] = useState('')
-  const [debounceVal, setDebounceVal] = useState('')
+
+  useEffect(() => {
+    setTableJson(usersData)
+  }, [])
+
+  // Pagination logic
 
   const itemsPerPage = 10
-
   const start = (currentPage - 1) * itemsPerPage
   const activeItems = tableJson.slice(start, start + itemsPerPage)
   const totalPages = Math.ceil(tableJson.length / itemsPerPage)
 
-  const handleNext = () => {
-    setCurrentPage(currentPage + 1)
-  }
-  const handlePrev = () => {
-    setCurrentPage(currentPage < 1 ? 1 : currentPage - 1)
-  }
-  const handleChange = (e) => {
-    setsearchVal(e.target.value)
-  }
-  const [filteredItems, setFilteredItems] = useState([])
-
-  useEffect(() => {
-    setFilteredItems(activeItems)
-  }, [tableJson])
-
-  // console.log('activeItems: ', activeItems)
-  // console.log('filteredItems ', filteredItems)
   useEffect(() => {
     const interval = setTimeout(() => {
       setDebounceVal(searchVal)
     }, 500)
     return () => clearTimeout(interval)
   }, [searchVal])
-  // console.log(searchVal)
-  // console.log(debounceVal)
 
   useEffect(() => {
     const searchingItems = tableJson.filter((a) =>
-      `${a.name} || ${a.role}`.toLowerCase().includes(searchVal.toLowerCase())
+      `${a.name} ${a.role}`.toLowerCase().includes(debounceVal.toLowerCase())
     )
-    setFilteredItems(searchingItems)
-  }, [debounceVal])
+    setFilteredItems(searchingItems.slice(start, start + itemsPerPage))
+  }, [debounceVal, tableJson, currentPage])
+
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1)
+  }
+
+  const handlePrev = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1)
+  }
 
   return (
-    <div
-      className={`${
-        openSidebar ? 'ml-[266px]' : 'ml-[80px]'
-      } min-h-screen flex flex-col flex-1 p-3 bg-gray-50`}
-    >
+    <div className='min-h-screen overflow-y-auto flex flex-col flex-1 py-[15px] bg-gray-50'>
       {/* Header */}
       <ProfileNotification />
 
@@ -86,16 +77,18 @@ const Users = () => {
         <Card className='min-w-[768px]'>
           <CardContent className='p-0'>
             <div className='p-4 flex justify-between items-center'>
-              <h2 className='text-lg font-semibold'>Users</h2>
+              <h2 className='text-lg font-semibold'>
+                {currentLang === 'ar' ? t('Users') : 'Users'}
+              </h2>
               <div className='flex gap-3'>
                 <Input
-                  className=' min-w-[450px]'
+                  className='min-w-[450px]'
                   type='search'
-                  placeholder='Search'
+                  placeholder={t('Search')}
                   value={searchVal}
-                  onChange={handleChange}
+                  onChange={(e) => setSearchVal(e.target.value)}
                 />
-                <Button variant='outline'>Filters</Button>
+                <Button variant='outline'>{t('Filters')}</Button>
               </div>
             </div>
 
@@ -105,9 +98,12 @@ const Users = () => {
               statusColors={statusColors}
             />
 
+            {/* Pagination Controls */}
             <div className='flex justify-between items-center p-4 border-t text-sm'>
               <span>
-                Page {currentPage} of {totalPages}
+                {currentLang === 'ar'
+                  ? `${t('Page')} ${currentPage} ${t('of')} ${totalPages}`
+                  : `Page ${currentPage} of ${totalPages}`}
               </span>
               <div className='space-x-2'>
                 <Button
@@ -116,7 +112,7 @@ const Users = () => {
                   variant='outline'
                   size='sm'
                 >
-                  Previous
+                  {currentLang === 'ar' ? t('Previous') : 'Previous'}
                 </Button>
                 <Button
                   disabled={currentPage === totalPages}
@@ -124,7 +120,7 @@ const Users = () => {
                   variant='outline'
                   size='sm'
                 >
-                  Next
+                  {currentLang === 'ar' ? t('Next') : 'Next'}
                 </Button>
               </div>
             </div>

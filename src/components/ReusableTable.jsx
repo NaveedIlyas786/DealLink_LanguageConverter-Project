@@ -1,9 +1,40 @@
-import { Pencil, Trash2 } from 'lucide-react'
-import React from 'react'
+import i18n from '@/utils/i18n'
+import { Pencil, Repeat, Trash2 } from 'lucide-react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 
 const ReusableTable = ({ headers, data, statusColors }) => {
-  const { t } = useTranslation()
+  const location = useLocation()
+  const path = location.pathname
+  const currentPagePath = path.split('/')[1]
+
+  const { t } = useTranslation(currentPagePath)
+  const currentLang = i18n.language
+
+  const [activeRowId, setActiveRowId] = useState(null)
+  const actionRef = useRef(null)
+
+  // ✅ Close on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (actionRef.current && !actionRef.current.contains(event.target)) {
+        setActiveRowId(null)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const toggleActionsTab = (id) => {
+    setActiveRowId((prevId) => (prevId === id ? null : id))
+  }
+
+  const handleAction = (action, id) => {
+    console.log(`Action: ${action}, ID: ${id}`)
+    setActiveRowId(id)
+  }
+  console.log('activeRowId: ', activeRowId)
 
   return (
     <div className='overflow-auto'>
@@ -11,18 +42,34 @@ const ReusableTable = ({ headers, data, statusColors }) => {
         <thead className='bg-gray-100'>
           <tr>
             {headers.map((header) => (
-              <th key={header.key} className='text-left px-4 py-3'>
+              <th
+                key={header.key}
+                className={`${
+                  currentLang === 'ar' ? 'text-right' : 'text-left'
+                } px-4 py-3`}
+              >
                 {t(header.label)}
               </th>
             ))}
-            <th className='text-left px-4 py-2'>{t('Actions')}</th>
+            <th
+              className={`${
+                currentLang === 'ar' ? 'text-right' : 'text-left'
+              } px-4 py-3`}
+            >
+              {t('Actions')}
+            </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='relative'>
           {data.map((row) => (
             <tr key={row.id} className='border-b'>
               {headers.map((header) => (
-                <td key={header.key} className='px-4 py-3'>
+                <td
+                  key={header.key}
+                  className={`${
+                    currentLang === 'ar' ? 'text-right' : 'text-left'
+                  } px-4 py-3`}
+                >
                   {header.key === 'status' ? (
                     <span
                       className={`px-2 py-1 rounded text-xs font-medium ${
@@ -33,19 +80,66 @@ const ReusableTable = ({ headers, data, statusColors }) => {
                     </span>
                   ) : header.key === 'offerName' ? (
                     t(`offerNames.${row.offerName}`, row.offerName)
+                  ) : header.key === 'offerTitle' ? (
+                    t(`offerTitles.${row.offerTitle}`, row.offerTitle)
                   ) : header.key === 'merchant' ? (
                     t(`merchants.${row.merchant}`, row.merchant)
                   ) : header.key === 'category' ? (
                     t(`categories.${row.category}`, row.category)
+                  ) : header.key === 'role' ? (
+                    t(`roles.${row.role}`, row.role)
                   ) : (
                     row[header.key]
                   )}
                 </td>
               ))}
 
-              <td className='px-4 py-2 flex gap-2'>
-                <Pencil className='w-4 h-4 text-blue-600 cursor-pointer' />
-                <Trash2 className='w-4 h-4 text-red-600 cursor-pointer' />
+              {/* Actions */}
+              <td
+                className={`${
+                  currentLang === 'ar' ? 'text-right' : 'text-left'
+                } px-4 py-3`}
+              >
+                <div className='relative inline-block' ref={actionRef}>
+                  <button
+                    onClick={() => toggleActionsTab(row.id)}
+                    className={`text-gray-600  text-[20px] ${
+                      currentLang === 'ar' ? 'text-right' : 'text-left'
+                    } px-4 py-3`}
+                  >
+                    ...
+                  </button>
+
+                  {activeRowId === row.id && (
+                    <div className='absolute z-10 bg-white shadow-lg rounded-lg py-2 w-36 top-6 right-0'>
+                      <div
+                        className='flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer'
+                        onClick={() => handleAction('Delete', row.id)}
+                      >
+                        <Trash2 className='w-4 h-4 text-orange-500' />
+                        <span className='text-sm text-black'>
+                          {t('actions.delete')}
+                        </span>
+                      </div>
+                      <div
+                        className='flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer'
+                        onClick={() => handleAction('Edit', row.id)}
+                      >
+                        <Pencil className='w-4 h-4 text-orange-500' />
+                        <span className='text-sm text-black'>
+                          {t('actions.edit')}
+                        </span>
+                      </div>
+                      <div
+                        className='flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer'
+                        onClick={() => handleAction('Repost', row.id)}
+                      >
+                        <Repeat className='w-4 h-4 text-orange-500' />
+                        <span className='text-sm text-black'>Repost</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </td>
             </tr>
           ))}
