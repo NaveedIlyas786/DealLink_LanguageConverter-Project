@@ -79,7 +79,7 @@ const Sidebar = () => {
           <Link
             to='/offerPage'
             className={`flex items-center gap-2 transition ${
-              isActive('/offerPage')
+              isActive('/offerPage') || isActive('/offerPage/createnewOffer')
                 ? 'bg-[#17642f] text-[#ffffff] font-bold'
                 : 'text-gray-700 hover:text-[#FE7D13]'
             }`}

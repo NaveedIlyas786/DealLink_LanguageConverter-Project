@@ -11,6 +11,7 @@ import ProfileNotification from '@/components/ProfileNotification'
 import { useSidebar } from '@/components/SidebarContext'
 import { useTranslation } from 'react-i18next'
 import i18n from '@/utils/i18n'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -29,7 +30,7 @@ const OfferPage = () => {
   ]
 
   const { t } = useTranslation('offerPage')
-
+  const navigate = useNavigate()
   // console.log('Current language table:', t.language)
 
   const [tableJson, setTableJson] = useState([])
@@ -76,6 +77,9 @@ const OfferPage = () => {
   const handlePrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1)
   }
+  const routeTonewOfferCreation = () => {
+    navigate('/offerPage/createnewOffer')
+  }
   return (
     <div
       className={`min-h-screen overflow-y-auto flex flex-col flex-1 py-[15px] bg-gray-50`}
@@ -86,20 +90,28 @@ const OfferPage = () => {
       <div className='overflow-x-auto md:overflow-x-visible'>
         <Card className='min-w-[768px]'>
           <CardContent className='p-0'>
-            <div className='p-4 flex justify-between items-center'>
+            <div className='p-4 gap-2 flex justify-between items-center'>
               <h2 className='text-lg font-semibold'>
                 {currentLang === 'ar' ? t('Offers') : 'Offers'}
               </h2>
-              <div className='flex gap-3'>
-                <Input
-                  className=' min-w-[450px]'
-                  type='search'
-                  placeholder={t('Search')}
-                  value={searchVal}
-                  onChange={(e) => setSearchVal(e.target.value)}
-                />
-                <Button variant='outline'>{t('Filters')}</Button>
-              </div>
+
+              <Button
+                onClick={routeTonewOfferCreation}
+                variant='default'
+                className='bg-green-800 hover:bg-green-700 text-white'
+              >
+                Add New Offer
+              </Button>
+            </div>
+            <div className='p-4 gap-2 flex justify-between items-center'>
+              <Input
+                className=' min-w-[450px]'
+                type='search'
+                placeholder={t('Search')}
+                value={searchVal}
+                onChange={(e) => setSearchVal(e.target.value)}
+              />
+              <Button variant='outline'>{t('Filters')}</Button>
             </div>
 
             <ReusableTable
