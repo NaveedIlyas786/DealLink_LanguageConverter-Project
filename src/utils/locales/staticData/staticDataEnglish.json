@@ -6,6 +6,8 @@
   "Total Users": "Total Users",
   "Dashboard": "Dashboard",
   "Offers": "Offers",
+  "Coupens": "Coupens",
+  "Payments": "Payments",
   "My Offers": "My Offers",
 
   "Users": "Users",
@@ -62,6 +64,9 @@
   "Offer Title": "Offer Title",
   "Pricing & Redemption": "Pricing & Redemption",
   "Category": "Category",
+  "Add New Category": "Add New Category",
+  "Filters": "Filters",
+  "Search": "Search",
   "Publish Now": "Publish Now",
   "Save as Draft": "Save as Draft",
   "Create New Offer": "Create New Offer",

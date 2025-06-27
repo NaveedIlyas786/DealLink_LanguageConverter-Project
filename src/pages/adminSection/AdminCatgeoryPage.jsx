@@ -15,6 +15,7 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import FilterSidebar from '@/components/dashboardOffers/FilterSidebar'
 import CreateOfferForm from '@/components/dashboardOffers/CreateOfferForm'
 import { useDynamicNamespace } from '@/components/useDynamicNameSpace'
+import CreateCategoryForm from '@/components/dashboardCategory/CreateCategoryForm'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -22,17 +23,16 @@ const statusColors = {
   Pending: 'bg-yellow-100 text-yellow-700',
 }
 
-const UserOfferPage = () => {
+const AdminCatgeoryPage = () => {
   const currentLang = i18n.language
   const ns = useDynamicNamespace() // ✅ use the namespace from the URL
   const { t } = useTranslation([ns, 'static']) // ✅ load both main + fallback
-
   const headers = [
-    { key: 'offerName', label: t('Offer Name') },
-    { key: 'views', label: t('Views') },
-    { key: 'redemptions', label: t('Redemptions') },
-    { key: 'validity', label: t('Validity') },
-    { key: 'status', label: t('Status') },
+    { key: 'offerName', label: t('offerName') },
+    { key: 'merchant', label: t('merchant') },
+    { key: 'category', label: t('category') },
+    { key: 'submittedOn', label: t('submittedOn') },
+    { key: 'status', label: t('status') },
   ]
 
   const navigate = useNavigate()
@@ -112,10 +112,10 @@ const UserOfferPage = () => {
     setShowFilter(false)
   }
 
-  const [showCreateOfferForm, setShowCreateOfferForm] = useState(false)
+  const [showCategoryForm, setShowCreateCategoryForm] = useState(false)
 
   const ShowNewOfferCreationComponent = () => {
-    setShowCreateOfferForm(true)
+    setShowCreateCategoryForm(true)
   }
 
   return (
@@ -128,17 +128,19 @@ const UserOfferPage = () => {
       <div className='overflow-x-auto md:overflow-x-visible'>
         <Card className='min-w-[768px]'>
           <CardContent className='p-0'>
-            {showCreateOfferForm ? (
+            {showCategoryForm ? (
               // 👉 Show Create Form
               <div className='p-4'>
-                <CreateOfferForm goBack={() => setShowCreateOfferForm(false)} />
+                <CreateCategoryForm
+                  goBack={() => setShowCreateCategoryForm(false)}
+                />
               </div>
             ) : (
               // 👉 Show Offers Table
               <>
                 <div className='p-4 gap-2 flex justify-between items-center'>
                   <h2 className='text-lg font-semibold'>
-                    {currentLang === 'ar' ? t('My Offers') : 'My Offers'}
+                    {currentLang === 'ar' ? t('Category') : 'Category'}
                   </h2>
 
                   <Button
@@ -146,7 +148,7 @@ const UserOfferPage = () => {
                     variant='default'
                     className='bg-green-800 hover:bg-green-700 cursor-pointer text-white'
                   >
-                    {t('Add New Offer')}
+                    {t('Add New Category')}
                   </Button>
                 </div>
 
@@ -216,4 +218,4 @@ const UserOfferPage = () => {
   )
 }
 
-export default UserOfferPage
+export default AdminCatgeoryPage

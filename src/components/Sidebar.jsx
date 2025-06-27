@@ -1,9 +1,12 @@
 import {
   ArrowLeft,
   BadgePercent,
+  CreditCard,
+  Layers,
   LayoutDashboard,
   LogOut,
   Settings,
+  Ticket,
   User,
 } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
@@ -122,6 +125,25 @@ const Sidebar = ({ role }) => {
                 )}
               </Link>
             </li>
+            <li>
+              <Link
+                to={`/${role}/adminCategory`}
+                className={`flex items-center gap-2 transition ${
+                  isActive(`/${role}/adminCategory`) ||
+                  isActive(`/${role}/adminCategory/createNewCategory`)
+                    ? 'bg-[#17642f] text-[#ffffff] font-bold'
+                    : 'text-gray-700 hover:text-[#FE7D13]'
+                }`}
+              >
+                <Layers className='w-7 h-5' />
+
+                {openSidebar && (
+                  <span className='text-[16px]'>
+                    {t(`Category`, { ns: 'static' })}
+                  </span>
+                )}
+              </Link>
+            </li>
 
             <li>
               <Link
@@ -166,6 +188,40 @@ const Sidebar = ({ role }) => {
           </>
         )}
 
+        <li>
+          <Link
+            to={`/${role}/coupens`}
+            className={`flex items-center gap-2 transition ${
+              isActive(`/${role}/coupens`)
+                ? 'bg-[#17642f] text-[#ffffff] font-bold'
+                : 'text-gray-700 hover:text-[#FE7D13]'
+            }`}
+          >
+            <Ticket className='w-7 h-5' />
+            {openSidebar && (
+              <span className='text-[16px]'>
+                {t(`Coupens`, { ns: 'static' })}
+              </span>
+            )}
+          </Link>
+        </li>
+        <li>
+          <Link
+            to={`/${role}/payments`}
+            className={`flex items-center gap-2 transition ${
+              isActive(`/${role}/payments`)
+                ? 'bg-[#17642f] text-[#ffffff] font-bold'
+                : 'text-gray-700 hover:text-[#FE7D13]'
+            }`}
+          >
+            <CreditCard className='w-7 h-5' />
+            {openSidebar && (
+              <span className='text-[16px]'>
+                {t(`Payments`, { ns: 'static' })}
+              </span>
+            )}
+          </Link>
+        </li>
         <li>
           <Link
             to={`/${role}/settings`}

@@ -61,10 +61,10 @@ const UserDashboard = () => {
 
   const headers = [
     { key: 'offerName', label: t('offerName') },
-    { key: 'views', label: t('views') },
-    { key: 'redemptions', label: t('redemptions') },
-    { key: 'convertionRate', label: t('convertionRate') },
-    { key: 'status', label: t('status') },
+    { key: 'views', label: t('Views') },
+    { key: 'redemptions', label: t('Redemptions') },
+    { key: 'convertionRate', label: t('Convertion Rate') },
+    { key: 'status', label: t('Status') },
   ]
 
   useEffect(() => {

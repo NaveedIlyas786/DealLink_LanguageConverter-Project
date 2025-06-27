@@ -5,23 +5,32 @@
     "merchant": "Beauty Bliss",
     "category": "Beauty",
     "submittedOn": "16/08/2013",
-    "status": "Approved"
+    "status": "Approved",
+    "views": 746,
+    "redemptions": 736,
+    "validity": "18-10-2025"
   },
   {
     "id": 2,
-    "offerName": "Buy 1 Get 1 Hair Wash",
+    "offerName": "50% Off Glow Facial",
     "merchant": "Smile Care Dental",
     "category": "Food",
     "submittedOn": "16/08/2013",
-    "status": "Approved"
+    "status": "Approved",
+    "views": 951,
+    "redemptions": 524,
+    "validity": "25-02-2026"
   },
   {
     "id": 3,
-    "offerName": "20% Off Manicure",
+    "offerName": "Buy 1 Get 1 Hair Wash",
     "merchant": "Beauty Bliss",
     "category": "Fitness",
     "submittedOn": "16/08/2013",
-    "status": "Rejected"
+    "status": "Rejected",
+    "views": 134,
+    "redemptions": 91,
+    "validity": "30-05-2026"
   },
   {
     "id": 4,
@@ -29,7 +38,10 @@
     "merchant": "Smile Care Dental",
     "category": "Beauty",
     "submittedOn": "16/08/2013",
-    "status": "Approved"
+    "status": "Approved",
+    "views": 429,
+    "redemptions": 337,
+    "validity": "30-12-2025"
   },
   {
     "id": 5,
@@ -37,206 +49,119 @@
     "merchant": "Beauty Bliss",
     "category": "Food",
     "submittedOn": "16/08/2013",
-    "status": "Rejected"
+    "status": "Rejected",
+    "views": 224,
+    "redemptions": 70,
+    "validity": "27-01-2026"
   },
   {
     "id": 6,
-    "offerName": "Rs. 999 Makeup Trial",
-    "merchant": "Smile Care Dental",
-    "category": "Food",
-    "submittedOn": "16/08/2013",
-    "status": "Pending"
-  },
-  {
-    "id": 7,
-    "offerName": "20% Off Manicure",
-    "merchant": "Beauty Bliss",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Rejected"
-  },
-  {
-    "id": 8,
     "offerName": "50% Off Glow Facial",
     "merchant": "Smile Care Dental",
     "category": "Food",
     "submittedOn": "16/08/2013",
-    "status": "Approved"
+    "status": "Pending",
+    "views": 149,
+    "redemptions": 58,
+    "validity": "06-08-2026"
+  },
+  {
+    "id": 7,
+    "offerName": "Buy 1 Get 1 Hair Wash",
+    "merchant": "Beauty Bliss",
+    "category": "Beauty",
+    "submittedOn": "16/08/2013",
+    "status": "Approved",
+    "views": 974,
+    "redemptions": 633,
+    "validity": "14-09-2025"
+  },
+  {
+    "id": 8,
+    "offerName": "Buy 1 Get 1 Smoothie",
+    "merchant": "Smile Care Dental",
+    "category": "Food",
+    "submittedOn": "16/08/2013",
+    "status": "Rejected",
+    "views": 534,
+    "redemptions": 506,
+    "validity": "01-04-2026"
   },
   {
     "id": 9,
     "offerName": "50% Off Glow Facial",
     "merchant": "Beauty Bliss",
-    "category": "Beauty",
+    "category": "Fitness",
     "submittedOn": "16/08/2013",
-    "status": "Approved"
+    "status": "Approved",
+    "views": 801,
+    "redemptions": 605,
+    "validity": "18-09-2025"
   },
   {
     "id": 10,
-    "offerName": "Free Nail Art",
-    "merchant": "Glamour Spot",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Approved"
-  },
-  {
-    "id": 11,
-    "offerName": "Flat 30% on Massage",
-    "merchant": "Relax Zone",
-    "category": "Wellness",
-    "submittedOn": "16/08/2013",
-    "status": "Pending"
-  },
-  {
-    "id": 12,
-    "offerName": "Buy 2 Get 1 Facial",
-    "merchant": "Glow Care",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Rejected"
-  },
-  {
-    "id": 13,
-    "offerName": "50% Off Pedicure",
-    "merchant": "Feet First",
-    "category": "Wellness",
-    "submittedOn": "16/08/2013",
-    "status": "Approved"
-  },
-  {
-    "id": 14,
-    "offerName": "Hair Spa Combo",
-    "merchant": "Hair Studio",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Approved"
-  },
-  {
-    "id": 15,
-    "offerName": "Eyebrow Threading Free",
-    "merchant": "Brows & Co",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Pending"
-  },
-  {
-    "id": 16,
-    "offerName": "Full Body Wax 40% Off",
-    "merchant": "Smooth Touch",
-    "category": "Wellness",
-    "submittedOn": "16/08/2013",
-    "status": "Rejected"
-  },
-  {
-    "id": 17,
-    "offerName": "30% Off Bridal Package",
-    "merchant": "Beauty Bliss",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Approved"
-  },
-  {
-    "id": 18,
-    "offerName": "Free Hair Wash",
-    "merchant": "Hair Studio",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Approved"
-  },
-  {
-    "id": 19,
-    "offerName": "Rs. 499 Cleanup",
-    "merchant": "Glamour Spot",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Pending"
-  },
-  {
-    "id": 20,
-    "offerName": "Manicure & Pedicure Combo",
-    "merchant": "Feet First",
-    "category": "Wellness",
-    "submittedOn": "16/08/2013",
-    "status": "Approved"
-  },
-  {
-    "id": 21,
-    "offerName": "Laser Hair Removal Trial",
-    "merchant": "Smooth Touch",
-    "category": "Wellness",
-    "submittedOn": "16/08/2013",
-    "status": "Rejected"
-  },
-  {
-    "id": 22,
-    "offerName": "50% Off Facial",
-    "merchant": "Glow Care",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Approved"
-  },
-  {
-    "id": 23,
-    "offerName": "Hair Cut + Blow Dry",
-    "merchant": "Hair Studio",
-    "category": "Beauty",
-    "submittedOn": "16/08/2013",
-    "status": "Approved"
-  },
-  {
-    "id": 24,
-    "offerName": "Underarm Whitening",
-    "merchant": "Glamour Spot",
-    "category": "Wellness",
-    "submittedOn": "16/08/2013",
-    "status": "Pending"
-  },
-  {
-    "id": 25,
-    "offerName": "Teeth Whitening",
-    "merchant": "Smile Care Dental",
-    "category": "Health",
-    "submittedOn": "16/08/2013",
-    "status": "Approved"
-  },
-  {
-    "id": 26,
     "offerName": "Free Dental Checkup",
     "merchant": "Smile Care Dental",
     "category": "Health",
     "submittedOn": "16/08/2013",
-    "status": "Rejected"
+    "status": "Pending",
+    "views": 804,
+    "redemptions": 566,
+    "validity": "17-03-2026"
   },
   {
-    "id": 27,
-    "offerName": "Face Polish Discount",
+    "id": 11,
+    "offerName": "50% Off Glow Facial",
     "merchant": "Beauty Bliss",
-    "category": "Beauty",
+    "category": "Health",
     "submittedOn": "16/08/2013",
-    "status": "Approved"
+    "status": "Approved",
+    "views": 899,
+    "redemptions": 818,
+    "validity": "16-02-2026"
   },
   {
-    "id": 28,
-    "offerName": "15% Off Head Massage",
-    "merchant": "Relax Zone",
+    "id": 12,
+    "offerName": "20% Off Pedicure",
+    "merchant": "Smile Care Dental",
     "category": "Wellness",
     "submittedOn": "16/08/2013",
-    "status": "Approved"
+    "status": "Rejected",
+    "views": 615,
+    "redemptions": 40,
+    "validity": "24-12-2025"
   },
   {
-    "id": 29,
-    "offerName": "Free Consultation",
-    "merchant": "Smooth Touch",
+    "id": 13,
+    "offerName": "50% Off Glow Facial",
+    "merchant": "Beauty Bliss",
     "category": "Wellness",
     "submittedOn": "16/08/2013",
-    "status": "Pending"
+    "status": "Approved",
+    "views": 599,
+    "redemptions": 496,
+    "validity": "22-11-2025"
   },
   {
-    "id": 30,
-    "offerName": "Rs. 299 Quick Facial",
-    "merchant": "Beauty Bliss",
+    "id": 14,
+    "offerName": "Free Hair Styling",
+    "merchant": "Hair Studio",
     "category": "Beauty",
     "submittedOn": "16/08/2013",
-    "status": "Approved"
+    "status": "Pending",
+    "views": 751,
+    "redemptions": 676,
+    "validity": "31-01-2026"
+  },
+  {
+    "id": 15,
+    "offerName": "50% Off Glow Facial",
+    "merchant": "Beauty Bliss",
+    "category": "Food",
+    "submittedOn": "16/08/2013",
+    "status": "Approved",
+    "views": 281,
+    "redemptions": 240,
+    "validity": "10-06-2026"
   }
 ]

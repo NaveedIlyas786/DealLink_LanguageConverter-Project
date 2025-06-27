@@ -1,8 +1,7 @@
 {
-  "offerTitle": "عنوان العرض",
-  "merchant": "التاجر",
-  "category": "الفئة",
+  "offerName": "اسم العرض",
   "status": "الحالة",
+
   "statuses": {
     "Approved": "مقبول",
     "Pending": "قيد الانتظار",
@@ -23,7 +22,7 @@
     "Food": "طعام",
     "Fitness": "لياقة"
   },
-  "offerTitles": {
+  "offerNames": {
     "50% Off Glow Facial": "خصم 50% على تنظيف البشرة",
     "Buy 1 Get 1 Hair Wash": "اشترِ غسيل شعر واحصل على الآخر مجانًا",
     "20% Off Manicure": "خصم 20% على المانكير",
@@ -36,5 +35,10 @@
   "Next": "التالي",
   "Page": "الصفحة",
   "of": "من",
-  "Previous": "السابق"
+  "Previous": "السابق",
+
+  "convertionRate": "معدل التحويل",
+  "submittedOn": "تاريخ الإرسال",
+  "category": "الفئة",
+  "merchant": "التاجر"
 }

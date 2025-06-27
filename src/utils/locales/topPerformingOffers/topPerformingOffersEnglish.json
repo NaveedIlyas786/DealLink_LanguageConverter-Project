@@ -24,5 +24,13 @@
   "Next": "Next",
   "views": "views",
   "redemptions": "redemptions",
-  "convertionRate": "convertionRate"
+  "convertionRate": "Convertion Rate",
+  "submittedOn": "Submitted On",
+  "category": "Category",
+  "categories": {
+    "Beauty": "Beauty",
+    "Food": "Food",
+    "Fitness": "Fitness"
+  },
+  "merchant": "Merchant"
 }

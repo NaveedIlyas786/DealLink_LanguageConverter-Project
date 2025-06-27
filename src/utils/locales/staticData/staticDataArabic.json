@@ -5,6 +5,8 @@
   "Active Offers": "العروض النشطة",
   "Total Users": "إجمالي المستخدمين",
   "Dashboard": "لوحة التحكم",
+  "Coupens": "القسائم",
+  "Payments": "المدفوعات",
   "Offers": "العروض",
   "My Offers": "عروضي",
   "Users": "المستخدمون",
@@ -12,6 +14,7 @@
   "Offer Name": "اسم العرض",
   "Views": "المشاهدات",
   "Redemptions": "الاستبدالات",
+
   "Convertion Rate": "معدل التحويل",
   "Status": "الحالة",
   "Active": "نشط",
@@ -60,6 +63,9 @@
   "Offer Title": "عنوان العرض",
   "Pricing & Redemption": "التسعير والاسترداد",
   "Category": "الفئة",
+  "Filters": "فلاتر",
+  "Search": "بحث",
+  "Add New Category": "إضافة فئة جديدة",
   "Publish Now": "انشر الآن",
   "Save as Draft": "احفظ كمسودة",
   "Create New Offer": "إنشاء عرض جديد",
@@ -70,6 +76,7 @@
   "Select Category": "اختر الفئة",
   "Beauty": "الجمال",
   "Health": "الصحة",
+
   "Fitness": "اللياقة",
   "Hey! Arlene McCoy": "مرحبًا! أرلين ماكوي",
   "Here’s an overview of platform activity.": "إليك نظرة عامة على نشاط المنصة."
