@@ -101,44 +101,69 @@ const Sidebar = ({ role }) => {
           </Link>
         </li>
 
-        <li>
-          <Link
-            to={`/${role}/offerPage`}
-            className={`flex items-center gap-2 transition ${
-              isActive(`/${role}/offerPage`) ||
-              isActive(`/${role}/offerPage/createnewOffer`)
-                ? 'bg-[#17642f] text-[#ffffff] font-bold'
-                : 'text-gray-700 hover:text-[#FE7D13]'
-            }`}
-          >
-            <BadgePercent className='w-7 h-5' />
-            {openSidebar && (
-              <span className='text-[16px]'>
-                {t(`Offers`, { ns: 'static' })}
-              </span>
-            )}
-          </Link>
-        </li>
-
         {/* Only show this to admin */}
         {role === 'admin' && (
-          <li>
-            <Link
-              to={`/${role}/users`}
-              className={`flex items-center gap-2 transition ${
-                isActive(`/${role}/users`)
-                  ? 'bg-[#17642f] text-[#ffffff] font-bold'
-                  : 'text-gray-700 hover:text-[#FE7D13]'
-              }`}
-            >
-              <User className='w-7 h-5' />
-              {openSidebar && (
-                <span className='text-[16px]'>
-                  {t(`Users`, { ns: 'static' })}
-                </span>
-              )}
-            </Link>
-          </li>
+          <>
+            <li>
+              <Link
+                to={`/${role}/offerPage`}
+                className={`flex items-center gap-2 transition ${
+                  isActive(`/${role}/offerPage`) ||
+                  isActive(`/${role}/offerPage/createnewOffer`)
+                    ? 'bg-[#17642f] text-[#ffffff] font-bold'
+                    : 'text-gray-700 hover:text-[#FE7D13]'
+                }`}
+              >
+                <BadgePercent className='w-7 h-5' />
+                {openSidebar && (
+                  <span className='text-[16px]'>
+                    {t(`Offers`, { ns: 'static' })}
+                  </span>
+                )}
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to={`/${role}/users`}
+                className={`flex items-center gap-2 transition ${
+                  isActive(`/${role}/users`)
+                    ? 'bg-[#17642f] text-[#ffffff] font-bold'
+                    : 'text-gray-700 hover:text-[#FE7D13]'
+                }`}
+              >
+                <User className='w-7 h-5' />
+                {openSidebar && (
+                  <span className='text-[16px]'>
+                    {t(`Users`, { ns: 'static' })}
+                  </span>
+                )}
+              </Link>
+            </li>
+          </>
+        )}
+        {/* Only show this user */}
+        {role === 'user' && (
+          <>
+            <li>
+              <Link
+                to={`/${role}/userOfferPage`}
+                className={`flex items-center gap-2 transition ${
+                  isActive(`/${role}/userOfferPage`) ||
+                  isActive(`/${role}/userOfferPage/createnewOffer`)
+                    ? 'bg-[#17642f] text-[#ffffff] font-bold'
+                    : 'text-gray-700 hover:text-[#FE7D13]'
+                }`}
+              >
+                <BadgePercent className='w-7 h-5' />
+                {openSidebar && (
+                  <span className='text-[16px]'>
+                    {t(`My Offers`, { ns: 'static' })}
+                  </span>
+                )}
+              </Link>
+            </li>
+          </>
         )}
 
         <li>

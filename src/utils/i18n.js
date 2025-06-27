@@ -12,6 +12,9 @@ import arabicLanguageUserPage from '../utils/locales/userPageSidebar/arabicLangu
 import offersNeedingReviewEnglish from '../utils/locales/offersNeedingReview/offersNeedingReviewEnglish.json'
 import offersNeedingReviewArabic from '../utils/locales/offersNeedingReview/offersNeedingReviewArabic.json'
 
+import topPerformingOffersEnglish from '../utils/locales/topPerformingOffers/topPerformingOffersEnglish.json'
+import topPerformingOffersArabic from '../utils/locales/topPerformingOffers/topPerformingOffersArabic.json'
+
 import staticDataEnglish from '../utils/locales/staticData/staticDataEnglish.json'
 import staticDataArabic from '../utils/locales/staticData/staticDataArabic.json'
 
@@ -46,7 +49,7 @@ i18n
         'admin/dashboard': offersNeedingReviewEnglish,
         'user/offerPage': engLanguageOfferPage,
         'user/users': engLanguageUserPage,
-        'user/dashboard': offersNeedingReviewEnglish,
+        'user/dashboard': topPerformingOffersEnglish,
         static: staticDataEnglish,
       },
       ar: {
@@ -55,7 +58,7 @@ i18n
         'admin/dashboard': offersNeedingReviewArabic,
         'user/offerPage': arabicLanguageOfferPage,
         'user/users': arabicLanguageUserPage,
-        'user/dashboard': offersNeedingReviewArabic,
+        'user/dashboard': topPerformingOffersArabic,
         static: staticDataArabic,
       },
     },

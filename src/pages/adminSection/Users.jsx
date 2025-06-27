@@ -8,7 +8,7 @@ import usersData from '@/data/users.json'
 import { useTranslation } from 'react-i18next'
 import i18n from '@/utils/i18n'
 
-import '../App.css'
+import '../../App.css'
 import { useDynamicNamespace } from '@/components/useDynamicNameSpace'
 
 const statusColors = {

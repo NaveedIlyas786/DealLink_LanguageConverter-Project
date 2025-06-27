@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import i18n from '../utils/i18n'
+import i18n from '../../utils/i18n'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -11,16 +11,16 @@ import ProfileNotification from '@/components/ProfileNotification'
 import ReusableTable from '@/components/ReusableTable'
 
 import recentActivityJson from '@/data/recentActivity.json'
-import summaryJson from '@/data/summary.json'
+import summaryJson from '../../data/adminSummary.json'
 import offersNeedingReviewData from '@/data/offersNeedingReview.json'
 
-import activeUsersImg from '../assets/activeUsers.png'
-import totalUsersImg from '../assets/totalUsers.png'
-import monthRevenueImg from '../assets/monthRevenue.png'
-import totalRedemptionsImg from '../assets/totalRedemptions.png'
+import activeUsersImg from '../../assets/activeUsers.png'
+import totalUsersImg from '../../assets/totalUsers.png'
+import monthRevenueImg from '../../assets/monthRevenue.png'
+import totalRedemptionsImg from '../../assets/totalRedemptions.png'
 import { TrendingUp } from 'lucide-react'
 
-import '../App.css'
+import '../../App.css'
 import { useDynamicNamespace } from '@/components/useDynamicNameSpace'
 
 const statusColors = {
@@ -36,7 +36,7 @@ const images = [
   totalRedemptionsImg,
 ]
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const ns = useDynamicNamespace() // ✅ use the namespace from the URL
   const { t } = useTranslation([ns, 'static']) // ✅ load both main + fallback
   const currentLang = i18n.language
@@ -51,7 +51,6 @@ const Dashboard = () => {
 
   const itemsPerPage = 10
   const start = (currentPage - 1) * itemsPerPage
-  const activeItems = tableJson.slice(start, start + itemsPerPage)
   const totalPages = Math.ceil(tableJson.length / itemsPerPage)
 
   const headers = [
@@ -90,6 +89,12 @@ const Dashboard = () => {
   const handlePrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1)
   }
+  const titles = [
+    t(`Total Users`),
+    t(`Active Offers`),
+    t(`Total Redemptions`),
+    t(`Revenue This Month`),
+  ]
 
   return (
     <div className='min-h-screen overflow-y-auto flex flex-col flex-1 py-[15px] bg-gray-50'>
@@ -110,7 +115,7 @@ const Dashboard = () => {
                 alt={a.title}
                 className='w-10 h-10 mb-2'
               />
-              <h2 className='text-lg font-semibold'>{t(`${a.title}`)}</h2>
+              <h2 className='text-lg font-semibold'>{titles[index]}</h2>
               <h1 className='text-[22px] font-bold flex items-center gap-2'>
                 {t(`${a.value}`)}
                 <span className='text-[#17642F] text-sm flex items-center'>
@@ -219,4 +224,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default AdminDashboard

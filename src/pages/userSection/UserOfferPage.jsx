@@ -4,7 +4,7 @@ import { Settings, UserCircle } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import tabledata from '@/data/tableEntries.json'
 import ReusableTable from '@/components/ReusableTable'
-import '../App.css'
+import '../../App.css'
 import { Input } from '@/components/ui/input'
 import ProfileNotification from '@/components/ProfileNotification'
 // import { useTranslation } from 'react-i18next'
@@ -22,7 +22,7 @@ const statusColors = {
   Pending: 'bg-yellow-100 text-yellow-700',
 }
 
-const OfferPage = () => {
+const UserOfferPage = () => {
   const currentLang = i18n.language
   const headers = [
     { key: 'offerName', label: 'offerName' },
@@ -137,7 +137,7 @@ const OfferPage = () => {
               <>
                 <div className='p-4 gap-2 flex justify-between items-center'>
                   <h2 className='text-lg font-semibold'>
-                    {currentLang === 'ar' ? t('Offers') : 'Offers'}
+                    {currentLang === 'ar' ? t('My Offers') : 'My Offers'}
                   </h2>
 
                   <Button
@@ -215,4 +215,4 @@ const OfferPage = () => {
   )
 }
 
-export default OfferPage
+export default UserOfferPage

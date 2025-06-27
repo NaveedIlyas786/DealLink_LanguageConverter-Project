@@ -4,13 +4,16 @@ import Login from './pages/loginSignUp/Login'
 import ForgotPassword from './pages/loginSignUp/ForgotPassword'
 import NewPasswordCreationPage from './pages/loginSignUp/NewPasswordCreationPage'
 import EmailVerifcationCodePage from './pages/loginSignUp/EmailVerifcationCodePage'
-import Dashboard from './pages/Dashboard'
-import OfferPage from './pages/OfferPage'
-import Users from './pages/Users'
-import Settings from './pages/Settings'
+import OfferPage from './pages/adminSection/AdminOfferPage'
+import Users from './pages/adminSection/Users'
+import Settings from './pages/adminSection/Settings'
 import NotFoundPage from './components/NotFoundPage'
 import Sidebar from './components/Sidebar'
 import './App.css'
+import AdminDashboard from './pages/adminSection/AdminDashboard'
+import UserDashboard from './pages/userSection/UserDashboard'
+import AdminOfferPage from './pages/adminSection/AdminOfferPage'
+import UserOfferPage from './pages/userSection/UserOfferPage'
 export const App = () => {
   const location = useLocation()
   const role = location.pathname.split('/')[1] // 'admin' or 'user'
@@ -46,14 +49,14 @@ export const App = () => {
           />
 
           {/* Admin routes */}
-          <Route path='/admin/dashboard' element={<Dashboard />} />
-          <Route path='/admin/offerPage' element={<OfferPage />} />
+          <Route path='/admin/dashboard' element={<AdminDashboard />} />
+          <Route path='/admin/offerPage' element={<AdminOfferPage />} />
           <Route path='/admin/users' element={<Users />} />
           <Route path='/admin/settings' element={<Settings />} />
 
           {/* User routes */}
-          <Route path='/user/dashboard' element={<Dashboard />} />
-          <Route path='/user/offerPage' element={<OfferPage />} />
+          <Route path='/user/dashboard' element={<UserDashboard />} />
+          <Route path='/user/userOfferPage' element={<UserOfferPage />} />
           <Route path='/user/settings' element={<Settings />} />
 
           {/* Catch-all */}
