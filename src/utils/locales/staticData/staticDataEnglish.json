@@ -67,10 +67,17 @@
   "Add New Category": "Add New Category",
   "Filters": "Filters",
   "Search": "Search",
+
+  "Payment ID": "Payment ID",
+  "Date": "Date",
+  "Amount": "Amount",
+  "Method": "Method",
+
   "Publish Now": "Publish Now",
   "Save as Draft": "Save as Draft",
   "Create New Offer": "Create New Offer",
   "Short Description": "Short Description",
+  "SKU ID": "SKU ID",
   "Full Description": "Full Description",
   "Original Price": "Original Price",
   "Discounted Price": "Discounted Price",

@@ -29,7 +29,7 @@ const CreateOfferForm = ({ goBack }) => {
             />
           </div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
             <div>
               <label className='block text-sm font-medium text-gray-700'>
                 {t('Category', { ns: 'static' })}
@@ -59,11 +59,21 @@ const CreateOfferForm = ({ goBack }) => {
 
             <div>
               <label className='block text-sm font-medium text-gray-700'>
+                {t('SKU ID', { ns: 'static' })}
+              </label>
+              <input
+                type='text'
+                placeholder='Enter SKU Id"'
+                className='w-full border bg-white border-gray-300 rounded-full px-4 p-2 focus:outline-none focus:ring-2 focus:ring-orange-400'
+              />
+            </div>
+            <div>
+              <label className='block text-sm font-medium text-gray-700'>
                 {t('Short Description', { ns: 'static' })}
               </label>
               <input
                 type='text'
-                placeholder='e.g. "Enjoy a premium facial at half price!"'
+                placeholder='Enter Short Description'
                 className='w-full border bg-white border-gray-300 rounded-full px-4 p-2 focus:outline-none focus:ring-2 focus:ring-orange-400'
               />
             </div>
