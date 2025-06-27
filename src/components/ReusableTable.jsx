@@ -106,7 +106,7 @@ const ReusableTable = ({ headers, data, statusColors }) => {
                 <div className='relative inline-block' ref={actionRef}>
                   <button
                     onClick={() => toggleActionsTab(row.id)}
-                    className={`text-gray-600  text-[20px] ${
+                    className={`text-gray-600 cursor-pointer  text-[20px] ${
                       currentLang === 'ar' ? 'text-right' : 'text-left'
                     } px-4 py-3`}
                   >
@@ -114,7 +114,11 @@ const ReusableTable = ({ headers, data, statusColors }) => {
                   </button>
 
                   {activeRowId === row.id && (
-                    <div className='absolute z-10 bg-white shadow-lg rounded-lg py-2 w-36 top-6 right-0'>
+                    <div
+                      className={`absolute z-10 bg-white shadow-lg rounded-lg py-2 w-36 top-6 ${
+                        currentLang === 'ar' ? 'left-0' : 'right-0'
+                      } `}
+                    >
                       <div
                         className='flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer'
                         onClick={() => handleAction('Delete', row.id)}
@@ -138,7 +142,9 @@ const ReusableTable = ({ headers, data, statusColors }) => {
                         onClick={() => handleAction('Repost', row.id)}
                       >
                         <Repeat className='w-4 h-4 text-orange-500' />
-                        <span className='text-sm text-black'>Repost</span>
+                        <span className='text-sm text-black'>
+                          {t('actions.repost')}
+                        </span>
                       </div>
                     </div>
                   )}

@@ -21,7 +21,8 @@
   "Actions": "Actions",
   "actions": {
     "edit": "Edit",
-    "delete": "Delete"
+    "delete": "Delete",
+    "repost": "Repost"
   },
   "offerTitles": {
     "50% Off Glow Facial": "50% Off Glow Facial",

@@ -15,7 +15,8 @@
   },
   "actions": {
     "edit": "Edit",
-    "delete": "Delete"
+    "delete": "Delete",
+    "repost": "Repost"
   },
   "noActions": "No actions available",
   "Filters": "Filters",

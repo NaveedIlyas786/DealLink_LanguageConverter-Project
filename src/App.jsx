@@ -6,7 +6,7 @@ import NewPasswordCreationPage from './pages/loginSignUp/NewPasswordCreationPage
 import EmailVerifcationCodePage from './pages/loginSignUp/EmailVerifcationCodePage'
 import OfferPage from './pages/adminSection/AdminOfferPage'
 import Users from './pages/adminSection/Users'
-import Settings from './pages/adminSection/Settings'
+import Settings from './pages/allUserRolesAccess/Settings'
 import NotFoundPage from './components/NotFoundPage'
 import Sidebar from './components/Sidebar'
 import './App.css'

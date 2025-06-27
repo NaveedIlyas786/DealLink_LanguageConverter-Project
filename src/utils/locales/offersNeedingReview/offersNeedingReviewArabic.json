@@ -11,7 +11,8 @@
   "Actions": "الإجراءات",
   "actions": {
     "edit": "تعديل",
-    "delete": "حذف"
+    "delete": "حذف",
+    "repost": "إعادة النشر"
   },
   "merchants": {
     "Beauty Bliss": "بيوتي بليس",

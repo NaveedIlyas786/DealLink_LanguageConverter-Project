@@ -31,7 +31,8 @@
   "Actions": "إجراءات",
   "actions": {
     "edit": "تعديل",
-    "delete": "حذف"
+    "delete": "حذف",
+    "repost": "إعادة النشر"
   },
   "noActions": "لا توجد إجراءات",
   "roles": {
