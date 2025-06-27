@@ -36,6 +36,13 @@ const Sidebar = () => {
   console.log('isActive: ', isActive)
   // console.log('openSidebar sidebar: ', openSidebar)
   // console.log('currentLang sidebar: ', currentLang)
+  function useQueryRole() {
+    const { search } = useLocation()
+    const query = new URLSearchParams(search)
+    return query.get('role') || 'user' // default to 'user'
+  }
+  const role = useQueryRole()
+
   return (
     <div
       className={`sidebar relative top-0 left-0 z-50 flex flex-col ${
@@ -80,6 +87,7 @@ const Sidebar = () => {
       </Link>
 
       {/* Nav Items */}
+      {/* {role === 'admin' && ( */}
       <ul className='flex flex-col space-y-2 mt-10'>
         <li>
           <Link
@@ -153,6 +161,7 @@ const Sidebar = () => {
           </Link>
         </li>
       </ul>
+      {/* )} */}
 
       {/* Logout Button */}
 

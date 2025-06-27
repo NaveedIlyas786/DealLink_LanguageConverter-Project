@@ -1,3 +1,44 @@
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url(./assets/fonts/KumbhSans.ttf);
+}
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url(./assets/fonts/KumbhSans.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url(./assets/fonts/Poppins-Regular.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url(./assets/fonts/InterRegular.ttf);
+  font-weight: 500;
+}
+
+.kumbh_sana_bold {
+  font-family: 'Kumbh Sans';
+  font-weight: 700;
+  font-size: 30px;
+}
+.kumbh_sana_sami_bold {
+  font-family: 'Kumbh Sans';
+  font-weight: 600;
+  font-size: 14px;
+}
+.poppins_normal_bold {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 16px;
+}
+.Inter_normal_bold {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 14px;
+}
+
 .sidebar ul li a {
   padding: 15px;
   border-radius: 10px;

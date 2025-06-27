@@ -38,5 +38,19 @@
   "ON": "تشغيل",
   "OFF": "إيقاف",
   "Old Password": "كلمة المرور القديمة",
-  "New Password": "كلمة المرور الجديدة"
+  "New Password": "كلمة المرور الجديدة",
+  "Offer Title": "عنوان العرض",
+  "Pricing & Redemption": "التسعير والاسترداد",
+  "Category": "الفئة",
+  "Publish Now": "انشر الآن",
+  "Save as Draft": "احفظ كمسودة",
+  "Create New Offer": "إنشاء عرض جديد",
+  "Short Description": "وصف قصير",
+  "Full Description": "الوصف الكامل",
+  "Original Price": "السعر الأصلي",
+  "Discounted Price": "السعر بعد الخصم",
+  "Select Category": "اختر الفئة",
+  "Beauty": "الجمال",
+  "Health": "الصحة",
+  "Fitness": "اللياقة"
 }

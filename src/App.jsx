@@ -46,10 +46,6 @@ const AppWrapper = () => {
           />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/offerPage' element={<OfferPage />} />
-          <Route
-            path='/offerPage/createnewOffer'
-            element={<CreateNewOffer />}
-          />
           <Route path='/users' element={<Users />} />
           <Route path='/settings' element={<Settings />} />
         </Routes>

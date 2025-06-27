@@ -25,13 +25,13 @@ const SignUp = () => {
           <img src={dealLinkLogo} alt='DealLink' className='h-10' />
         </div>
 
-        <h2 className='text-center text-2xl font-bold text-gray-800 mb-[30px]'>
+        <h2 className='text-center kumbh_sana_bold text-gray-800 mb-[30px]'>
           Login to your Account
         </h2>
 
         <form className='flex flex-col gap-[20px]'>
           <div className='flex-1'>
-            <label className='block text-sm font-medium text-gray-700'>
+            <label className='block kumbh_sana_sami_bold  text-gray-700'>
               Email Address
             </label>
             <input
@@ -43,7 +43,7 @@ const SignUp = () => {
 
           <div className='flex flex-col md:flex-row gap-[20px]'>
             <div className='flex-1'>
-              <label className='block text-sm font-medium text-gray-700'>
+              <label className='block kumbh_sana_sami_bold  text-gray-700'>
                 Password
               </label>
               <input
@@ -62,10 +62,13 @@ const SignUp = () => {
                 id='terms'
                 className='mr-2 w-4 h-4 text-orange-600'
               />
-              <span className='-mt-1'>Remember me</span>
+              <span className='-mt-1 Inter_normal_bold'>Remember me</span>
             </div>
-            <label htmlFor='terms' className='text-sm text-gray-700'>
-              <a href='#' className='text-blue-600'>
+            <label
+              htmlFor='terms'
+              className='text-sm Inter_normal_bold text-gray-700'
+            >
+              <a href='#' className='text-[#0069C1]'>
                 Forgot Password
               </a>
             </label>
@@ -74,16 +77,16 @@ const SignUp = () => {
           <div className='flex justify-between items-center mt-[15px]'>
             <button
               type='submit'
-              className='bg-gradient-to-r w-full cursor-pointer from-orange-400 to-orange-500 text-white px-8 py-[19px] rounded-full shadow hover:from-orange-500 hover:to-orange-600 transition'
+              className='bg-gradient-to-r w-full poppins_normal_bold cursor-pointer from-orange-400 to-orange-500 text-white px-8 py-[19px] rounded-full shadow hover:from-orange-500 hover:to-orange-600 transition'
             >
               Save & Continue
             </button>
           </div>
 
           <p className='text-sm text-center text-gray-600 mt-[15px]'>
-            If you are already a member, please{' '}
-            <a href='/register' className='text-orange-400 underline'>
-              Login
+            Don't have an account?
+            <a href='/register' className='text-orange-400 ml-2 underline'>
+              Create an account
             </a>
           </p>
         </form>

@@ -26,13 +26,13 @@ const SignUp = () => {
           <img src={dealLinkLogo} alt='DealLink' className='h-10' />
         </div>
 
-        <h2 className='text-center text-2xl font-bold text-gray-800 mb-[15px]'>
+        <h2 className='text-center kumbh_sana_bold text-gray-800 mb-[15px]'>
           Create your Account
         </h2>
 
         <form className='flex flex-col gap-[15px]'>
           <div>
-            <label className='block text-sm font-medium text-gray-700'>
+            <label className='block kumbh_sana_sami_bold text-gray-700'>
               Business Name
             </label>
             <input
@@ -44,7 +44,7 @@ const SignUp = () => {
 
           <div className='flex flex-col md:flex-row gap-[15px]'>
             <div className='flex-1'>
-              <label className='block text-sm font-medium text-gray-700'>
+              <label className='block kumbh_sana_sami_bold text-gray-700'>
                 Owner's First Name
               </label>
               <input
@@ -54,7 +54,7 @@ const SignUp = () => {
               />
             </div>
             <div className='flex-1'>
-              <label className='block text-sm font-medium text-gray-700'>
+              <label className='block kumbh_sana_sami_bold text-gray-700'>
                 Owner's Last Name
               </label>
               <input
@@ -67,7 +67,7 @@ const SignUp = () => {
 
           <div className='flex flex-col md:flex-row gap-[15px]'>
             <div className='flex-1'>
-              <label className='block text-sm font-medium text-gray-700'>
+              <label className='block kumbh_sana_sami_bold text-gray-700'>
                 Email Address
               </label>
               <input
@@ -77,7 +77,7 @@ const SignUp = () => {
               />
             </div>
             <div className='flex-1'>
-              <label className='block text-sm font-medium text-gray-700'>
+              <label className='block kumbh_sana_sami_bold text-gray-700'>
                 Phone Number
               </label>
               <div className='flex items-center rounded-xl border border-input bg-background px-4 mt-1 py-[8px]'>
@@ -97,7 +97,7 @@ const SignUp = () => {
 
           <div className='flex flex-col md:flex-row gap-[15px]'>
             <div className='flex-1'>
-              <label className='block text-sm font-medium text-gray-700'>
+              <label className='block kumbh_sana_sami_bold text-gray-700'>
                 Password
               </label>
               <input
@@ -107,7 +107,7 @@ const SignUp = () => {
               />
             </div>
             <div className='flex-1'>
-              <label className='block text-sm font-medium text-gray-700'>
+              <label className='block kumbh_sana_sami_bold text-gray-700'>
                 Confirm Password
               </label>
               <input

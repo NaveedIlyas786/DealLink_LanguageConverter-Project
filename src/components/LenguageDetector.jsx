@@ -48,12 +48,12 @@ const LanguageDetector = () => {
         <div className='flex items-center gap-4'>
           <input
             className={`w-5 h-5 cursor-pointer ${
-              i18n.language === 'ar' ? 'accent-green-600' : ''
+              langCode === 'ar' ? 'accent-green-600' : ''
             }`}
             type='radio'
             id='arabic'
             name='fav_language'
-            checked={i18n.language === 'ar'}
+            checked={langCode === 'ar'}
             value='ar'
             onChange={() => handleLanguageChange('ar')}
           />

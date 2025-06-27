@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import UAEFlagImg from '../../assets/uaeFlag.png'
-import UkFlagImg from '../../assets/ukFlag.png'
 import LanguageDetector from '../LenguageDetector'
 import { useTranslation } from 'react-i18next'
 const SystemSettings = () => {
@@ -19,7 +17,10 @@ const SystemSettings = () => {
         </p>
 
         <div className='flex items-center gap-4'>
-          <span className='text-sm font-medium text-gray-700'>OFF</span>
+          <span className='text-sm font-medium text-gray-700'>
+            {' '}
+            {t('OFF', { ns: 'static' })}
+          </span>
 
           {/* Toggle Switch */}
           <label className='switch'>
@@ -27,7 +28,10 @@ const SystemSettings = () => {
             <span className='slider round'></span>
           </label>
 
-          <span className='text-sm font-medium text-gray-700'>ON</span>
+          <span className='text-sm font-medium text-gray-700'>
+            {' '}
+            {t('ON', { ns: 'static' })}
+          </span>
         </div>
       </div>
       <div>
