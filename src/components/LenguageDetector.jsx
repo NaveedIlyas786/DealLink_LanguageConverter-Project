@@ -12,7 +12,11 @@ const LanguageDetector = () => {
 
   const currentlang = localStorage.getItem('langCode') || i18n.language
   console.log('currentlang:', currentlang)
+  useEffect(() => {
+    setLangCode(currentlang)
+  }, [])
 
+  console.log('langCode:', langCode)
   const handleLanguageChange = (code) => {
     setLangCode(code || currentlang)
     i18n.changeLanguage(code)

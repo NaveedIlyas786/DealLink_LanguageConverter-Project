@@ -3,13 +3,16 @@ import { Pencil, Repeat, Trash2 } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
+import { useDynamicNamespace } from './useDynamicNameSpace'
 
 const ReusableTable = ({ headers, data, statusColors }) => {
   const location = useLocation()
   const path = location.pathname
   const currentPagePath = path.split('/')[1]
 
-  const { t } = useTranslation(currentPagePath)
+  // const { t } = useTranslation(currentPagePath)
+  const ns = useDynamicNamespace() // ✅ use the namespace from the URL
+  const { t } = useTranslation([ns, 'static']) // ✅ load both main + fallback
   const currentLang = i18n.language
 
   const [activeRowId, setActiveRowId] = useState(null)

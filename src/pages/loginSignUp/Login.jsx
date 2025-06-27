@@ -2,7 +2,7 @@ import React from 'react'
 import loginLeft from '../../assets/loginLeft.png'
 import loginRight from '../../assets/loginRight.png'
 import dealLinkLogo from '../../assets/dealLinkLogo.png'
-const SignUp = () => {
+const Login = () => {
   return (
     <div className='relative min-h-screen  md:px-[49px]  py-[29px] bg-gray-50 flex items-center justify-center '>
       <img
@@ -95,4 +95,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default Login

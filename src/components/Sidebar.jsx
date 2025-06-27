@@ -16,8 +16,8 @@ import { LuLogOut } from 'react-icons/lu'
 import i18n from '../utils/i18n'
 import { useTranslation } from 'react-i18next'
 
-const Sidebar = () => {
-  const { openSidebar, setOpenSidebar } = useSidebar(true)
+const Sidebar = ({ role }) => {
+  const { openSidebar, setOpenSidebar } = useSidebar()
   const location = useLocation()
   const currentLang = i18n.language
   const { t } = useTranslation()
@@ -36,12 +36,6 @@ const Sidebar = () => {
   console.log('isActive: ', isActive)
   // console.log('openSidebar sidebar: ', openSidebar)
   // console.log('currentLang sidebar: ', currentLang)
-  function useQueryRole() {
-    const { search } = useLocation()
-    const query = new URLSearchParams(search)
-    return query.get('role') || 'user' // default to 'user'
-  }
-  const role = useQueryRole()
 
   return (
     <div
@@ -91,9 +85,9 @@ const Sidebar = () => {
       <ul className='flex flex-col space-y-2 mt-10'>
         <li>
           <Link
-            to='/dashboard'
+            to={`/${role}/dashboard`}
             className={`flex items-center gap-2 transition ${
-              isActive('/dashboard')
+              isActive(`/${role}/dashboard`)
                 ? 'bg-[#17642f] text-[#ffffff] font-bold'
                 : 'text-gray-700 hover:text-[#FE7D13]'
             }`}
@@ -109,9 +103,10 @@ const Sidebar = () => {
 
         <li>
           <Link
-            to='/offerPage'
+            to={`/${role}/offerPage`}
             className={`flex items-center gap-2 transition ${
-              isActive('/offerPage') || isActive('/offerPage/createnewOffer')
+              isActive(`/${role}/offerPage`) ||
+              isActive(`/${role}/offerPage/createnewOffer`)
                 ? 'bg-[#17642f] text-[#ffffff] font-bold'
                 : 'text-gray-700 hover:text-[#FE7D13]'
             }`}
@@ -125,29 +120,32 @@ const Sidebar = () => {
           </Link>
         </li>
 
-        <li>
-          <Link
-            to='/users'
-            className={`flex items-center gap-2 transition ${
-              isActive('/users')
-                ? 'bg-[#17642f] text-[#ffffff] font-bold'
-                : 'text-gray-700 hover:text-[#FE7D13]'
-            }`}
-          >
-            <User className='w-7 h-5' />
-            {openSidebar && (
-              <span className='text-[16px]'>
-                {t(`Users`, { ns: 'static' })}
-              </span>
-            )}
-          </Link>
-        </li>
+        {/* Only show this to admin */}
+        {role === 'admin' && (
+          <li>
+            <Link
+              to={`/${role}/users`}
+              className={`flex items-center gap-2 transition ${
+                isActive(`/${role}/users`)
+                  ? 'bg-[#17642f] text-[#ffffff] font-bold'
+                  : 'text-gray-700 hover:text-[#FE7D13]'
+              }`}
+            >
+              <User className='w-7 h-5' />
+              {openSidebar && (
+                <span className='text-[16px]'>
+                  {t(`Users`, { ns: 'static' })}
+                </span>
+              )}
+            </Link>
+          </li>
+        )}
 
         <li>
           <Link
-            to='/settings'
+            to={`/${role}/settings`}
             className={`flex items-center gap-2 transition ${
-              isActive('/settings')
+              isActive(`/${role}/settings`)
                 ? 'bg-[#17642f] text-[#ffffff] font-bold'
                 : 'text-gray-700 hover:text-[#FE7D13]'
             }`}

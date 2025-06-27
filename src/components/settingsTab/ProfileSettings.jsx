@@ -107,7 +107,7 @@ const ProfileSettings = () => {
       >
         {t('Save Changes', { ns: 'static' })}
       </button>
-      <LanguageDetector />
+      {/* <LanguageDetector /> */}
     </div>
   )
 }

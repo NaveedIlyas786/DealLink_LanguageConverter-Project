@@ -14,6 +14,7 @@ import i18n from '@/utils/i18n'
 import { Outlet, useNavigate } from 'react-router-dom'
 import FilterSidebar from '@/components/dashboardOffers/FilterSidebar'
 import CreateOfferForm from '@/components/dashboardOffers/CreateOfferForm'
+import { useDynamicNamespace } from '@/components/useDynamicNameSpace'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -31,7 +32,8 @@ const OfferPage = () => {
     { key: 'status', label: 'status' },
   ]
 
-  const { t } = useTranslation('offerPage')
+  const ns = useDynamicNamespace() // ✅ use the namespace from the URL
+  const { t } = useTranslation([ns, 'static']) // ✅ load both main + fallback
   const navigate = useNavigate()
   // console.log('Current language table:', t.language)
 
@@ -143,7 +145,7 @@ const OfferPage = () => {
                     variant='default'
                     className='bg-green-800 hover:bg-green-700 cursor-pointer text-white'
                   >
-                    {t('Add New Offer', { ns: 'static' })}
+                    {t('Add New Offer')}
                   </Button>
                 </div>
 

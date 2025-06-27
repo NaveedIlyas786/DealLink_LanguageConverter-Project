@@ -1,23 +1,20 @@
-import React from 'react'
-import './App.css'
-import Sidebar from './components/Sidebar'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import SignUp from './pages/loginSignUp/SignUp'
+import Login from './pages/loginSignUp/Login'
+import ForgotPassword from './pages/loginSignUp/ForgotPassword'
+import NewPasswordCreationPage from './pages/loginSignUp/NewPasswordCreationPage'
+import EmailVerifcationCodePage from './pages/loginSignUp/EmailVerifcationCodePage'
 import Dashboard from './pages/Dashboard'
 import OfferPage from './pages/OfferPage'
-import CreateNewOffer from './components/dashboardOffers/CreateOfferForm'
 import Users from './pages/Users'
 import Settings from './pages/Settings'
-import { SidebarProvider } from './components/SidebarContext'
-import Login from './pages/loginSignUp/Login'
-import SignUp from './pages/loginSignUp/SignUp'
-import ForgotPassword from './pages/loginSignUp/ForgotPassword'
-import NewPasswordCreationPage from './pages/loginSignUp/newPasswordCreationPage'
-import EmailVerifcationCodePage from './pages/loginSignUp/emailVerifcationCodePage'
-
-const AppWrapper = () => {
+import NotFoundPage from './components/NotFoundPage'
+import Sidebar from './components/Sidebar'
+import './App.css'
+export const App = () => {
   const location = useLocation()
+  const role = location.pathname.split('/')[1] // 'admin' or 'user'
 
-  // Define routes where Sidebar should not be shown
   const noSidebarRoutes = [
     '/',
     '/register',
@@ -30,9 +27,12 @@ const AppWrapper = () => {
 
   return (
     <div className='flex h-screen'>
-      {isSidebarVisible && <Sidebar />}
+      {isSidebarVisible && (role === 'admin' || role === 'user') && (
+        <Sidebar role={role} />
+      )}
       <div className='flex-1 overflow-y-auto bg-gray-50 px-[15px]'>
         <Routes>
+          {/* Public routes */}
           <Route path='/' element={<Login />} />
           <Route path='/register' element={<SignUp />} />
           <Route path='/forgotPassword' element={<ForgotPassword />} />
@@ -44,24 +44,22 @@ const AppWrapper = () => {
             path='/emailVerifcationCodePage'
             element={<EmailVerifcationCodePage />}
           />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/offerPage' element={<OfferPage />} />
-          <Route path='/users' element={<Users />} />
-          <Route path='/settings' element={<Settings />} />
+
+          {/* Admin routes */}
+          <Route path='/admin/dashboard' element={<Dashboard />} />
+          <Route path='/admin/offerPage' element={<OfferPage />} />
+          <Route path='/admin/users' element={<Users />} />
+          <Route path='/admin/settings' element={<Settings />} />
+
+          {/* User routes */}
+          <Route path='/user/dashboard' element={<Dashboard />} />
+          <Route path='/user/offerPage' element={<OfferPage />} />
+          <Route path='/user/settings' element={<Settings />} />
+
+          {/* Catch-all */}
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </div>
     </div>
   )
 }
-
-const App = () => {
-  return (
-    <SidebarProvider>
-      <BrowserRouter>
-        <AppWrapper />
-      </BrowserRouter>
-    </SidebarProvider>
-  )
-}
-
-export default App

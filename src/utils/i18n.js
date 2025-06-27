@@ -27,20 +27,39 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-    ns: ['offerPage', 'users', 'dashboard', 'static'],
-    defaultNS: 'offerPage',
+    ns: [
+      'admin/offerPage',
+      'admin/users',
+      'admin/dashboard',
+      'static',
+      'user/offerPage',
+      'user/users',
+      'user/dashboard',
+      'static',
+    ],
+    defaultNS: 'admin/offerPage',
     fallbackNS: 'static',
     resources: {
       en: {
-        offerPage: engLanguageOfferPage,
-        users: engLanguageUserPage,
-        dashboard: offersNeedingReviewEnglish,
+        'admin/offerPage': engLanguageOfferPage,
+        'admin/users': engLanguageUserPage,
+        'admin/dashboard': offersNeedingReviewEnglish,
+
+        'user/offerPage': engLanguageOfferPage,
+        'user/users': engLanguageUserPage,
+        'user/dashboard': offersNeedingReviewEnglish,
+
         static: staticDataEnglish,
       },
       ar: {
-        offerPage: arabicLanguageOfferPage,
-        users: arabicLanguageUserPage,
-        dashboard: offersNeedingReviewArabic,
+        'admin/offerPage': arabicLanguageOfferPage,
+        'admin/users': arabicLanguageUserPage,
+        'admin/dashboard': offersNeedingReviewArabic,
+
+        'user/offerPage': arabicLanguageOfferPage,
+        'user/users': arabicLanguageUserPage,
+        'user/dashboard': offersNeedingReviewArabic,
+
         static: staticDataArabic,
       },
     },

@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next'
 import i18n from '@/utils/i18n'
 
 import '../App.css'
+import { useDynamicNamespace } from '@/components/useDynamicNameSpace'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -25,7 +26,8 @@ const headers = [
 ]
 
 const Users = () => {
-  const { t } = useTranslation('users')
+  const ns = useDynamicNamespace() // ✅ use the namespace from the URL
+  const { t } = useTranslation([ns, 'static']) // ✅ load both main + fallback
   const currentLang = i18n.language
 
   const [tableJson, setTableJson] = useState([])

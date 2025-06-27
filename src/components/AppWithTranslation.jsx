@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import i18n from '../utils/i18n'
-import App from '../App'
+import { App } from '../App'
 
 const AppWithTranslation = () => {
   const [ready, setReady] = useState(false)
