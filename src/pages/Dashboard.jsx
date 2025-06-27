@@ -21,6 +21,7 @@ import totalRedemptionsImg from '../assets/totalRedemptions.png'
 import { TrendingUp } from 'lucide-react'
 
 import '../App.css'
+import { useDynamicNamespace } from '@/components/useDynamicNameSpace'
 
 const statusColors = {
   Approved: 'bg-green-100 text-green-700',
@@ -36,7 +37,8 @@ const images = [
 ]
 
 const Dashboard = () => {
-  const { t } = useTranslation('dashboard')
+  const ns = useDynamicNamespace() // ✅ use the namespace from the URL
+  const { t } = useTranslation([ns, 'static']) // ✅ load both main + fallback
   const currentLang = i18n.language
 
   const [tableJson, setTableJson] = useState([])

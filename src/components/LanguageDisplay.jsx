@@ -1,5 +1,5 @@
 import React from 'react'
-import LenguageDetector from './LenguageDetector'
+import LenguageDetector from './LenguageSelector'
 
 const LanguageDisplay = () => {
   return (

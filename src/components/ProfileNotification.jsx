@@ -1,9 +1,11 @@
 import { Bell, UserCircle } from 'lucide-react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { useDynamicNamespace } from './useDynamicNameSpace'
 
 const ProfileNotification = () => {
-  const { t } = useTranslation('offerPage')
+  const ns = useDynamicNamespace() // ✅ use the namespace from the URL
+  const { t } = useTranslation([ns, 'static']) // ✅ load both main + fallback
   console.log('Current language table:', t.language)
 
   return (

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Input } from '@/components/ui/input'
-import LanguageDetector from '../LenguageDetector'
+import LenguageSelector from '../LenguageSelector'
 import { useTranslation } from 'react-i18next'
 import { useSidebar } from '../SidebarContext'
 const ProfileSettings = () => {
@@ -107,7 +107,7 @@ const ProfileSettings = () => {
       >
         {t('Save Changes', { ns: 'static' })}
       </button>
-      {/* <LanguageDetector /> */}
+      {/* <LenguageSelector /> */}
     </div>
   )
 }
