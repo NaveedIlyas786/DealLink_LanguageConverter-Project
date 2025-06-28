@@ -5,13 +5,16 @@ import { SidebarProvider } from './components/SidebarContext'
 import AppWithTranslation from './components/AppWithTranslation'
 import './utils/i18n'
 import './index.css'
+import ErrorBoundary from './components/ErrorBoundary'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <SidebarProvider>
-        <AppWithTranslation />
-      </SidebarProvider>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <SidebarProvider>
+          <AppWithTranslation />
+        </SidebarProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>
 )

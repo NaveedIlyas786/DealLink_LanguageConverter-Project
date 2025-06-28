@@ -1,4 +1,6 @@
-import { Bell, UserCircle } from 'lucide-react'
+import * as LucideIcons from 'lucide-react'
+const Bell = LucideIcons.Bell
+const UserCircle = LucideIcons.UserCircle
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDynamicNamespace } from './useDynamicNameSpace'

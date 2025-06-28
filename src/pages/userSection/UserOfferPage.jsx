@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Settings, UserCircle } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import tabledata from '@/data/tableEntries.json'
 import ReusableTable from '@/components/ReusableTable'

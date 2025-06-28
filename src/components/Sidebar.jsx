@@ -1,14 +1,15 @@
-import {
-  ArrowLeft,
-  BadgePercent,
-  CreditCard,
-  Layers,
-  LayoutDashboard,
-  LogOut,
-  Settings,
-  Ticket,
-  User,
-} from 'lucide-react'
+import * as LucideIcons from 'lucide-react'
+
+const ArrowLeft = LucideIcons.ArrowLeft
+const BadgePercent = LucideIcons.BadgePercent
+const CreditCard = LucideIcons.CreditCard
+const Layers = LucideIcons.Layers
+const LayoutDashboard = LucideIcons.LayoutDashboard
+const LogOut = LucideIcons.LogOut
+const Settings = LucideIcons.Settings
+const Ticket = LucideIcons.Ticket
+const User = LucideIcons.User
+
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import AppIcon from '../assets/app_icon.png'
@@ -39,6 +40,12 @@ const Sidebar = ({ role }) => {
   console.log('isActive: ', isActive)
   // console.log('openSidebar sidebar: ', openSidebar)
   // console.log('currentLang sidebar: ', currentLang)
+
+  console.log({
+    ArrowLeft: typeof ArrowLeft,
+    LuLogOut: typeof LuLogOut,
+    Settings: typeof Settings,
+  })
 
   return (
     <div

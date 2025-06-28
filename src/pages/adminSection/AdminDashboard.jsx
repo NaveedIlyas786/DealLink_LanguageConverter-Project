@@ -18,7 +18,8 @@ import activeUsersImg from '../../assets/activeUsers.png'
 import totalUsersImg from '../../assets/totalUsers.png'
 import monthRevenueImg from '../../assets/monthRevenue.png'
 import totalRedemptionsImg from '../../assets/totalRedemptions.png'
-import { TrendingUp } from 'lucide-react'
+import * as LucideIcons from 'lucide-react'
+const TrendingUp = LucideIcons.TrendingUp
 
 import '../../App.css'
 import { useDynamicNamespace } from '@/components/useDynamicNameSpace'

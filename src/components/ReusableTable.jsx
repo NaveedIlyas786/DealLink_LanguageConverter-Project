@@ -1,5 +1,10 @@
 import i18n from '@/utils/i18n'
-import { Pencil, Repeat, Trash2 } from 'lucide-react'
+import * as LucideIcons from 'lucide-react'
+
+const Pencil = LucideIcons.Pencil
+const Repeat = LucideIcons.Repeat
+const Trash2 = LucideIcons.Trash2
+
 import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
