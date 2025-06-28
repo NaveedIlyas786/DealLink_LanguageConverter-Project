@@ -8,7 +8,7 @@ import { useDynamicNamespace } from './useDynamicNameSpace'
 const ProfileNotification = () => {
   const ns = useDynamicNamespace() // ✅ use the namespace from the URL
   const { t } = useTranslation([ns, 'static']) // ✅ load both main + fallback
-  console.log('Current language table:', t.language)
+  // console.log('Current language table:', t.language)
 
   return (
     <div className='flex justify-between shadow-md bg-white px-[20px] py-[15px]  rounded-xl items-center mb-[20px]'>

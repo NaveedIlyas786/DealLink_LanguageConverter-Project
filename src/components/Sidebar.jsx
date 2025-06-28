@@ -16,7 +16,6 @@ import AppIcon from '../assets/app_icon.png'
 import dealLinkArbicName from '../assets/dealLinkArbicName.svg'
 import dealLinkEnglishName from '../assets/dealLinkEnglishName.svg'
 import { useSidebar } from './SidebarContext'
-import { LuLogOut } from 'react-icons/lu'
 import i18n from '../utils/i18n'
 import { useTranslation } from 'react-i18next'
 
@@ -37,15 +36,7 @@ const Sidebar = ({ role }) => {
 
   // Utility function to determine if the route is active
   const isActive = (path) => location.pathname === path
-  console.log('isActive: ', isActive)
-  // console.log('openSidebar sidebar: ', openSidebar)
-  // console.log('currentLang sidebar: ', currentLang)
-
-  console.log({
-    ArrowLeft: typeof ArrowLeft,
-    LuLogOut: typeof LuLogOut,
-    Settings: typeof Settings,
-  })
+  // console.log('isActive: ', isActive)
 
   return (
     <div
@@ -256,7 +247,7 @@ const Sidebar = ({ role }) => {
           openSidebar ? 'p-4' : 'p-2'
         } right-5 flex items-center gap-2  bg-red-100 text-red-600 rounded-[10px] hover:bg-red-200 transition`}
       >
-        <LuLogOut size={openSidebar ? 30 : 30} />
+        <LogOut size={openSidebar ? 30 : 30} />
 
         {openSidebar && (
           <span className='font-bold'> {t(`Logout`, { ns: 'static' })}</span>

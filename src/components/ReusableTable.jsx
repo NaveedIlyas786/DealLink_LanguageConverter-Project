@@ -19,7 +19,7 @@ const ReusableTable = ({ headers, data, statusColors }) => {
   const ns = useDynamicNamespace() // ✅ use the namespace from the URL
   const { t } = useTranslation([ns, 'static']) // ✅ load both main + fallback
   const currentLang = i18n.language
-
+  console.log('currentLang: ', currentLang)
   const [activeRowId, setActiveRowId] = useState(null)
   const actionRef = useRef(null)
 

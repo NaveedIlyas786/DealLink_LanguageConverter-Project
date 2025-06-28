@@ -8,9 +8,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+
+      // Force only one version of react-redux used across app and dependencies
+      'react-redux': path.resolve(__dirname, 'node_modules/react-redux'),
     },
-    // Ensure all imports of react / react-dom point to the same package
-    dedupe: ['react', 'react-dom'],
+    dedupe: ['react', 'react-dom', 'react-redux'], // Important for context-sharing
   },
   build: {
     sourcemap: true,
